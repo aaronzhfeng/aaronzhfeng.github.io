@@ -1,0 +1,11 @@
+{
+    "title": "Fake News Detection with C\u2011LSTM",
+    "description": "We build a CNN\u2011LSTM text classifier with pretrained embeddings and compare it to TF\u2011IDF/logistic baselines. We find strong in\u2011domain accuracy and diagnose domain\u2011shift failure modes.",
+    "tags": [
+        "CNN-LSTM",
+        "NLP"
+    ],
+    "repo": null,
+    "report": "report_fake_news_detection.pdf",
+    "image": "icon_fake_news.png"
+}

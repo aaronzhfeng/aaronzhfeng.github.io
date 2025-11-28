@@ -1,55 +1,37 @@
 # Aaron Feng - Portfolio Website
 
-Modern portfolio website built with HTML and Tailwind CSS.
-
 ## 🚀 Quick Start
+Run `./preview.sh` to preview locally at http://localhost:8000.
 
-### Preview Locally
+## 🛠️ Implementation Details
 
-You can preview the website locally before deploying:
+### Architecture
+This portfolio is built as a **Multi-Page Static Site** to provide focused content while maintaining a unified "Highlight Reel" landing experience.
 
-```bash
-# Method 1: Using the preview script (recommended)
-./preview.sh
+*   **Tech Stack:** HTML5, Tailwind CSS (via CDN), Font Awesome, Vanilla JavaScript.
+*   **Design Pattern:** Responsive Split-Layout (Home) & Top-Navigation (Detail Pages).
+*   **Theme:** Default Light Mode with persistent Dark Mode toggle (localStorage).
 
-# Method 2: Using Python's built-in server
-python3 -m http.server 8000
+### 📁 Site Structure
 
-# Method 3: Using Node.js (if you have http-server installed)
-npx http-server -p 8000
-```
+#### 1. Home Page (`index.html`)
+*   **Layout:** Fixed Left Sidebar (Profile & Local Nav) + Scrollable Right Content.
+*   **Content:** Acts as a "Cover Page" highlighting key academic achievements:
+    *   **Latest Research:** Q-Lab & Wang Lab summaries.
+    *   **Selected Publication:** ArcMemo paper card.
+    *   **Featured Projects:** Top 2 technical artifacts.
+*   **Navigation:**
+    *   **Left Sidebar:** Smooth-scrolls to sections within the Home page.
+    *   **Top Bar:** Global navigation links to full detailed pages.
 
-Then open your browser to: **http://localhost:8000**
+#### 2. Detail Pages
+*   `experience.html`: Full chronological work history.
+*   `publication.html`: Comprehensive publication list.
+*   `projects.html`: Complete technical portfolio with tags.
+*   `interests.html`: Side projects and hobbies (Music/Synth).
+*   `travel.html`: Interactive photo gallery with floating bubble UI.
 
-### Deploy to GitHub Pages
-
-1. Commit and push your changes:
-```bash
-git add .
-git commit -m "Update portfolio website"
-git push origin main
-```
-
-2. GitHub Pages will automatically deploy to: **https://aaronzhfeng.github.io**
-
-## 📁 File Structure
-
-- `index.html` - Main portfolio website
-- `image_34268e.png` - Profile picture
-- `preview.sh` - Local preview script
-
-## ✨ Features
-
-- ✅ Dark mode toggle
-- ✅ Responsive design
-- ✅ Smooth scrolling navigation
-- ✅ Interactive travel gallery
-- ✅ Mouse spotlight effect
-- ✅ Sections: About, Experience, Publications, Projects, Interests, Travel
-
-## 🛠️ Technologies
-
-- HTML5
-- Tailwind CSS (via CDN)
-- Font Awesome (via CDN)
-- Vanilla JavaScript
+### 💾 Version History (`save/`)
+Archived versions of the website structure are preserved for reference:
+*   `save/v0_single_page_20251128/`: The original Single-Page Application (SPA) version.
+*   `save/v1_multi_page_tab_20251128/`: The first iteration of the Multi-Page conversion (Standard Top Nav layout only).

@@ -1,0 +1,12 @@
+{
+    "title": "LLM Training & Inference (llm_TII)",
+    "description": "Developing scalable pipelines for training and inference of open-source LLMs. Benchmarking various frameworks to optimize performance and exploring alignment strategies.",
+    "tags": [
+        "Docker",
+        "Hydra",
+        "PyTorch"
+    ],
+    "repo": "https://github.com/aaronzhfeng/llm_TII",
+    "report": null,
+    "image": "icon_llm_tii.png"
+}

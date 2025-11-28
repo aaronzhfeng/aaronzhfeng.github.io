@@ -1,0 +1,11 @@
+{
+    "title": "3D\u2011Enhanced Graph Reaction Prediction",
+    "description": "We introduce a 3D\u2011aware reaction model by pre\u2011training 2D/3D MPNNs with an InfoNCE objective (QM9) and fine\u2011tuning a 2D encoder + LSTM decoder on ORD.",
+    "tags": [
+        "GNN",
+        "3D-Geometry"
+    ],
+    "repo": null,
+    "report": "report_3d_graph_reaction.pdf",
+    "image": "icon_3d_graph.png"
+}

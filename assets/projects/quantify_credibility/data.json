@@ -1,0 +1,11 @@
+{
+    "title": "Quantify Credibility",
+    "description": "A data-driven framework to assess and quantify the credibility of information sources. Leverages statistical modeling and NLP techniques to identify bias and reliability scores.",
+    "tags": [
+        "NLP",
+        "Python"
+    ],
+    "repo": "https://github.com/aaronzhfeng/quantify_credibility",
+    "report": null,
+    "image": "icon_quantify_credibility.png"
+}

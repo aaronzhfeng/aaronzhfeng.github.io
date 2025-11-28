@@ -1,0 +1,11 @@
+{
+    "title": "Efficient Expert\u2011Guided Retrieval",
+    "description": "We introduce a lightweight single\u2011block Mixture\u2011of\u2011Experts module for TinyBERT to enhance dense retrieval under tight compute. We find consistent gains in NDCG@10/Recall on BEIR SciFact while preserving efficiency.",
+    "tags": [
+        "MoE",
+        "BERT"
+    ],
+    "repo": null,
+    "report": "report_expert_guided_retrieval.pdf",
+    "image": "icon_retrieval.png"
+}

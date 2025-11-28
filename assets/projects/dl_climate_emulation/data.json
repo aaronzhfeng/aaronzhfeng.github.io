@@ -1,0 +1,11 @@
+{
+    "title": "Deep Learning for Climate Emulation",
+    "description": "We build U\u2011Net\u2011based emulators for monthly global climate fields (tas, pr) and benchmark against CNN/ResNet/FNO. We show that skip\u2011connected encoder\u2013decoders capture large\u2011scale patterns and reduce RMSE on 48\u00d772 ClimateBench grids.",
+    "tags": [
+        "U-Net",
+        "ClimateBench"
+    ],
+    "repo": "https://github.com/aaronzhfeng/DL_for_Climate_Emulation/",
+    "report": "report_dl_climate_emulation.pdf",
+    "image": "icon_climate.png"
+}

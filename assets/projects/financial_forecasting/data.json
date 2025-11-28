@@ -1,0 +1,11 @@
+{
+    "title": "Hybrid Financial Forecasting",
+    "description": "We investigate ARIMA/ARIMAX/SARIMA/GARCH baselines and build an ARIMAX+LSTM residual hybrid for NASDAQ daily returns (2010\u20132024).",
+    "tags": [
+        "Time Series",
+        "ARIMA/LSTM"
+    ],
+    "repo": "https://github.com/aaronzhfeng/AI_TimeSeries_Forecasting",
+    "report": "report_financial_forecasting.pdf",
+    "image": "icon_financial.png"
+}

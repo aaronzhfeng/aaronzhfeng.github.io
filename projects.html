@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron Feng | Home</title>
+    <title>Aaron Feng | Projects</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +72,10 @@
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
         ::selection { background-color: #2dd4bf; color: #0f172a; }
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 300ms, transform 300ms; }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: opacity 300ms, transform 300ms; }
     </style>
 
     <style id="theme-colors">
@@ -182,215 +186,39 @@
         </div>
     </nav>
 
-    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0 relative z-10">
-        <div class="lg:flex lg:justify-between lg:gap-4">
+    <!-- Main Content -->
+    <main class="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:px-24 relative z-10 min-h-[calc(100vh-12rem)]">
 
-            <!-- LEFT COLUMN (Fixed Header) -->
-            <header class="lg:sticky lg:top-24 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-between lg:py-12">
-                <div>
-                    <!-- Profile Picture -->
-                    <div class="mb-8 relative w-32 h-32 group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-primary-400 to-blue-500 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                        <img src="image_34268e.png" alt="Aaron Feng" class="relative w-32 h-32 rounded-full object-cover border-2 border-base-200 dark:border-base-800 shadow-lg">
-                    </div>
-
-                    <h1 class="text-4xl font-bold tracking-tight text-base-900 dark:text-base-200 sm:text-5xl">
-                        <a href="index.html">Aaron Feng</a>
-                    </h1>
-                    <h2 class="mt-3 text-lg font-medium tracking-tight text-base-900 dark:text-base-200 sm:text-xl">
-                        Data Science & Statistics<br>
-                        <span class="text-primary-600 dark:text-primary-400 text-base">@ UC San Diego</span>
-                    </h2>
-                    <p class="mt-4 max-w-xs leading-normal text-base-600 dark:text-base-400">
-                        Building scalable AI systems, optimizing neural networks, and exploring algorithmic reasoning.
-                    </p>
-
-                    <!-- Navigation (In-page anchor links) -->
-                    <nav class="nav hidden lg:block" aria-label="In-page jump links">
-                        <ul class="mt-16 w-max">
-                            <li>
-                                <a class="group flex items-center py-3 active" href="#about">
-                                    <span class="nav-indicator mr-4 h-px w-16 bg-base-900 dark:bg-base-200 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-900 dark:text-base-200 group-hover:text-base-900 dark:group-hover:text-base-200">About</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#research">
-                                    <span class="nav-indicator mr-4 h-px w-8 bg-base-400 dark:bg-base-600 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-500 dark:text-base-500 group-hover:text-base-900 dark:group-hover:text-base-200">Latest Research</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#publication">
-                                    <span class="nav-indicator mr-4 h-px w-8 bg-base-400 dark:bg-base-600 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-500 dark:text-base-500 group-hover:text-base-900 dark:group-hover:text-base-200">Selected Publication</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#project">
-                                    <span class="nav-indicator mr-4 h-px w-8 bg-base-400 dark:bg-base-600 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-500 dark:text-base-500 group-hover:text-base-900 dark:group-hover:text-base-200">Featured Project</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+        <section class="max-w-4xl mx-auto fade-in">
+            <h2 class="text-3xl font-bold mb-12 text-base-900 dark:text-base-200">Projects</h2>
+            <!-- Projects Container (Populated via JS) -->
+            <div id="projects-container" class="grid gap-12">
+                <!-- Loading State -->
+                <div class="text-center py-12 text-base-500 dark:text-base-400">
+                    <i class="fas fa-circle-notch fa-spin text-2xl mb-3 text-primary-500"></i>
+                    <p>Loading projects...</p>
                 </div>
+            </div>
+        </section>
 
-                <!-- Social Links -->
-                <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
-                    <li class="mr-5 text-xs">
-                        <a class="block text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors" href="https://github.com/aaronzhfeng" target="_blank" rel="noreferrer">
-                            <span class="sr-only">GitHub</span>
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                    </li>
-                    <li class="mr-5 text-xs">
-                        <a class="block text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors" href="https://linkedin.com/in/aaronzhfeng" target="_blank" rel="noreferrer">
-                            <span class="sr-only">LinkedIn</span>
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                    </li>
-                    <li class="mr-5 text-xs">
-                        <a class="block text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors" href="mailto:zhf004@ucsd.edu" target="_blank" rel="noreferrer">
-                            <span class="sr-only">Email</span>
-                            <i class="fas fa-envelope text-2xl"></i>
-                        </a>
-                    </li>
-                </ul>
-            </header>
+    </main>
 
-            <!-- RIGHT COLUMN (Scrollable Content) -->
-            <main id="content" class="pt-24 lg:w-[65%] lg:py-12">
-                
-                <!-- About Text -->
-                <section id="about" class="mb-16 scroll-mt-24 md:mb-24 lg:mb-36 lg:scroll-mt-32 fade-in">
-                    <div class="text-lg text-base-600 dark:text-base-400 leading-relaxed space-y-6">
-                        <p>
-                            I'm currently a senior undergraduate at <span class="font-medium text-base-900 dark:text-base-200">UC San Diego</span> pursuing a double major in <span class="font-medium text-primary-600 dark:text-primary-400">Data Science</span> and <span class="font-medium text-primary-600 dark:text-primary-400">Probability & Statistics</span> (GPA 3.83).
-                        </p>
-                        <p>
-                            My research interests lie at the intersection of <span class="font-medium text-base-900 dark:text-base-200">Machine Learning Systems</span> and <span class="font-medium text-base-900 dark:text-base-200">Scientific AI</span>. I love diving deep into how we can make LLMs more efficient through memory systems and optimizing training pipelines for open-source models.
-                        </p>
-                        <p>
-                            Outside of the lab, I'm usually analyzing datasets (sometimes just for fun), or exploring creative coding through algorithmic music generation.
-                        </p>
-                    </div>
-                </section>
+    <!-- Footer -->
+    <footer class="text-center pb-8 text-sm text-base-500 dark:text-base-500 fade-in delay-3">
+        <p>Coded in Visual Studio Code. Built with <span class="font-medium text-base-700 dark:text-base-400">HTML & Tailwind CSS</span>. Deployed via GitHub Pages.</p>
+    </footer>
 
-                <!-- Latest Research Highlight -->
-                <section id="research" class="mb-16 scroll-mt-24 lg:scroll-mt-32 fade-in delay-1">
-                    <div class="flex justify-between items-baseline mb-8 border-b border-base-200 dark:border-base-800 pb-4">
-                        <h2 class="text-2xl font-bold text-base-900 dark:text-base-200">Latest Research</h2>
-                        <a href="experience.html" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View All →</a>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="group relative p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <div class="mb-3">
-                                <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wide text-primary-700 bg-primary-100 rounded-full dark:bg-primary-900/30 dark:text-primary-300">Current</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-base-900 dark:text-base-200 mb-2">
-                                Research Assistant @ <a href="https://lianhui.ucsd.edu/getinvolved.html" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">Q-Lab</a>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 mb-4 line-clamp-3">
-                                Investigating memory systems for compositional reasoning on ARC-AGI. Designed feature extraction methodology for Program Synthesis memory format.
-                            </p>
-                        </div>
-                        <div class="group relative p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <div class="mb-3">
-                                <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wide text-primary-700 bg-primary-100 rounded-full dark:bg-primary-900/30 dark:text-primary-300">Current</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-base-900 dark:text-base-200 mb-2">
-                                Research Assistant @ <a href="http://wanglab.ucsd.edu/" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">Wang Lab</a>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 mb-4 line-clamp-3">
-                                Architected a heterogeneous Mixture-of-Experts (MoE) system for chemical reaction prediction. Implemented GNN encoders with shortest-path positional encodings.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Selected Publication Highlight -->
-                <section id="publication" class="mb-16 scroll-mt-24 lg:scroll-mt-32 fade-in delay-2">
-                    <div class="flex justify-between items-baseline mb-8 border-b border-base-200 dark:border-base-800 pb-4">
-                        <h2 class="text-2xl font-bold text-base-900 dark:text-base-200">Selected Publication</h2>
-                        <a href="publication.html" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View All →</a>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-white dark:bg-base-800/50 shadow-sm border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-colors hover:shadow-lg dark:hover:shadow-primary-900/10">
-                        <h3 class="font-bold text-xl text-base-900 dark:text-base-200 mb-2">
-                            <a href="https://arxiv.org/pdf/2509.04439" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">
-                                ArcMemo: Abstract Reasoning Composition with Lifelong LLM Memory
-                            </a>
-                        </h3>
-                        <p class="text-base-600 dark:text-base-400 mb-3 text-sm">
-                            Matthew Ho, Chen Si, <span class="font-bold text-base-900 dark:text-base-200">Zhaoxiang Feng</span>, Fangxu Yu, Yichi Yang, Zhijian Liu, Zhiting Hu, Lianhui Qin.
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <span class="inline-flex items-center rounded-full bg-base-100 dark:bg-base-700 px-2.5 py-0.5 text-xs font-medium text-base-800 dark:text-base-200">
-                                ICLR 2025 (Under Review)
-                            </span>
-                            <a href="https://arxiv.org/pdf/2509.04439" target="_blank" class="text-sm text-primary-600 dark:text-primary-400 hover:underline"><i class="fas fa-file-pdf mr-1"></i> PDF</a>
-                            <a href="https://github.com/matt-seb-ho/arc_memo" target="_blank" class="text-sm text-primary-600 dark:text-primary-400 hover:underline"><i class="fab fa-github mr-1"></i> Code</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Featured Project Highlight -->
-                <section id="project" class="mb-16 scroll-mt-24 lg:scroll-mt-32 fade-in delay-3">
-                    <div class="flex justify-between items-baseline mb-8 border-b border-base-200 dark:border-base-800 pb-4">
-                        <h2 class="text-2xl font-bold text-base-900 dark:text-base-200">Featured Project</h2>
-                        <a href="projects.html" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View All →</a>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="relative group block p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <h3 class="font-bold text-lg text-base-900 dark:text-base-200 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                                LLM Training & Inference (llm_TII)
-                                <span class="absolute inset-0"></span>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 text-sm mb-4">
-                                Developing scalable pipelines for training and inference of open-source LLMs.
-                            </p>
-                            <div class="flex flex-wrap gap-2 relative z-10">
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Docker</span>
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Hydra</span>
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">PyTorch</span>
-                            </div>
-                            <a href="https://github.com/aaronzhfeng/llm_TII" target="_blank" class="absolute top-6 right-6 text-base-400 group-hover:text-primary-500"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                        <div class="relative group block p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <h3 class="font-bold text-lg text-base-900 dark:text-base-200 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                                Quantify Credibility
-                                <span class="absolute inset-0"></span>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 text-sm mb-4">
-                                A data-driven framework to assess and quantify the credibility of information sources.
-                            </p>
-                            <div class="flex flex-wrap gap-2 relative z-10">
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">NLP</span>
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Python</span>
-                            </div>
-                            <a href="https://github.com/aaronzhfeng/quantify_credibility" target="_blank" class="absolute top-6 right-6 text-base-400 group-hover:text-primary-500"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </section>
-
-                <footer class="max-w-md pb-16 text-sm text-base-500 dark:text-base-500 sm:pb-0 fade-in delay-3">
-                    <p>
-                        Coded in Visual Studio Code. Built with <span class="font-medium text-base-700 dark:text-base-400">HTML & Tailwind CSS</span>. Deployed via GitHub Pages.
-                    </p>
-                </footer>
-            </main>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script>
+        // Mouse Spotlight
         const cursorLight = document.getElementById('cursor-light');
         document.addEventListener('mousemove', (e) => {
             cursorLight.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgb(var(--primary-500) / 0.15), transparent 80%)`;
         });
 
+        // Theme Toggle Logic
         const themeBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
-        // Default to light mode if no preference is saved
         if (localStorage.getItem('theme') === 'dark') {
             html.classList.add('dark');
         } else {
@@ -402,6 +230,7 @@
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
         });
 
+        // Active Nav Link
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(link => {
             if (link.getAttribute('href') === currentPath || (currentPath === '' && link.getAttribute('href') === 'index.html')) {
@@ -409,66 +238,91 @@
                 link.classList.remove('text-base-500', 'dark:text-base-500');
             }
         });
-        
-        // Scroll Spy Logic
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav ul li a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            // Check for bottom of page
-        // Check for bottom of page
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        
-        // If we are at the very bottom, highlight the last section
-        if (scrollPosition >= documentHeight - 50) { // 50px buffer
-             const lastSection = sections[sections.length - 1];
-             if (lastSection) {
-                 current = lastSection.getAttribute('id');
-             }
-        } else {
-            // Standard scroll spy logic
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                // Offset calculation to account for fixed header/sticky top
-                if (scrollY >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
+        // Dynamic Projects Loader
+        async function loadProjects() {
+            const container = document.getElementById('projects-container');
+            try {
+                // 1. Fetch Index
+                const indexResponse = await fetch('assets/projects/index.json');
+                if (!indexResponse.ok) throw new Error('Failed to load project index');
+                const projectIds = await indexResponse.json();
+
+                // 2. Fetch Data for each project
+                const projects = await Promise.all(projectIds.map(async (id) => {
+                    try {
+                        const dataResponse = await fetch(`assets/projects/${id}/data.json`);
+                        if (!dataResponse.ok) return null;
+                        const data = await dataResponse.json();
+                        return { id, ...data };
+                    } catch (err) {
+                        console.warn(`Failed to load project data for ${id}`, err);
+                        return null;
+                    }
+                }));
+
+                // 3. Filter valid and Render
+                const validProjects = projects.filter(p => p !== null);
+                
+                if (validProjects.length === 0) {
+                    container.innerHTML = '<p class="text-center text-base-500">No projects found.</p>';
+                    return;
                 }
-            });
+
+                container.innerHTML = validProjects.map(project => {
+                    // Construct paths
+                    const imagePath = `assets/projects/${project.id}/${project.image}`;
+                    const reportPath = project.report ? `assets/projects/${project.id}/${project.report}` : null;
+
+                    // Tags HTML
+                    const tagsHtml = project.tags.map(tag => 
+                        `<span class="rounded-full bg-primary-50 dark:bg-primary-400/10 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800">${tag}</span>`
+                    ).join('');
+
+                    // Actions HTML
+                    let actionsHtml = '';
+                    if (reportPath) {
+                        actionsHtml += `<a href="${reportPath}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium"><i class="fas fa-file-pdf mr-1.5"></i>Report</a>`;
+                    }
+                    if (project.repo) {
+                        actionsHtml += `<a href="${project.repo}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium ${reportPath ? 'ml-4' : ''}"><i class="fab fa-github mr-1.5"></i>Code</a>`;
+                    } else {
+                        actionsHtml += `<span class="text-base-400 text-sm italic ${reportPath ? 'ml-4' : ''}"><i class="fas fa-code mr-1.5"></i>Code (TBD)</span>`;
+                    }
+
+                    return `
+                        <div class="group relative flex flex-col md:flex-row gap-8 items-start fade-in">
+                            <img src="${imagePath}" alt="${project.title}" class="w-full md:w-48 h-32 object-cover bg-white rounded-lg border border-base-200 dark:border-base-700 p-2">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-xl text-base-900 dark:text-base-200 mb-2">
+                                    ${project.repo ? `<a href="${project.repo}" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">${project.title}</a>` : project.title}
+                                </h3>
+                                <p class="text-base-600 dark:text-base-400 mb-4 text-sm leading-relaxed">
+                                    ${project.description}
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${tagsHtml}
+                                </div>
+                                <div class="flex gap-4">
+                                    ${actionsHtml}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                container.innerHTML = '<p class="text-center text-red-500">Failed to load projects. Please try again later.</p>';
+            }
         }
 
-        navLinks.forEach(link => {
-                const indicator = link.querySelector('.nav-indicator');
-                const text = link.querySelector('.nav-text');
-                
-                link.classList.remove('active');
-                
-                // Reset styling
-                if (indicator && text) {
-                   indicator.classList.remove('w-16', 'bg-base-900', 'dark:bg-base-200');
-                   indicator.classList.add('w-8', 'bg-base-400', 'dark:bg-base-600');
-                   
-                   text.classList.remove('text-base-900', 'dark:text-base-200');
-                   text.classList.add('text-base-500', 'dark:text-base-500');
-
-                   // Check if link href matches current section id
-                   if (link.getAttribute('href') === `#${current}`) {
-                       link.classList.add('active');
-                       indicator.classList.remove('w-8', 'bg-base-400', 'dark:bg-base-600');
-                       indicator.classList.add('w-16', 'bg-base-900', 'dark:bg-base-200');
-                       
-                       text.classList.remove('text-base-500', 'dark:text-base-500');
-                       text.classList.add('text-base-900', 'dark:text-base-200');
-                   }
-                }
-            });
-        });
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadProjects);
     </script>
 
     <script>
-        // Theme Color Logic
+        // Theme Color Logic (Existing)
         const themes = {
             'ocean': {
                 'primary-50': '240 253 250',
@@ -613,16 +467,14 @@
             
             localStorage.setItem('color-theme', themeName);
             
-            // Update UI state for active button (if on a page with the new dropdown)
+            // Update UI state for active button
             const btns = document.querySelectorAll('[data-theme]');
             if (btns.length > 0) {
                 btns.forEach(btn => {
                     const isSelected = btn.getAttribute('data-theme') === themeName;
-                    const check = btn.querySelector('i.active-check'); // Not implemented in HTML yet, but good for future
                     
                     if (isSelected) {
                         btn.classList.add('bg-base-50', 'dark:bg-base-700/50', 'ring-1', 'ring-base-200', 'dark:ring-base-700');
-                        // Add checkmark logic here if we add the icon later
                     } else {
                         btn.classList.remove('bg-base-50', 'dark:bg-base-700/50', 'ring-1', 'ring-base-200', 'dark:ring-base-700');
                     }

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron Feng | Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        slate: { 850: '#1e293b', 900: '#0f172a', 950: '#020617' },
+                        'engineer-dark': '#0b1120', 'engineer-light': '#f8fafc', accent: '#64ffda',
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(5px, 5px); } 50% { transform: translate(0, 10px); } 75% { transform: translate(-5px, 5px); } }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        ::selection { background-color: #2dd4bf; color: #0f172a; }
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 300ms, transform 300ms; }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: opacity 300ms, transform 300ms; }
+    </style>
+</head>
+<body class="bg-engineer-light text-slate-600 dark:bg-engineer-dark dark:text-slate-400 font-sans leading-relaxed transition-colors duration-300 pt-24">
+
+    <!-- Background Gradient -->
+    <div class="fixed inset-0 z-0 pointer-events-none hidden dark:block">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-slate-900 via-engineer-dark to-engineer-dark"></div>
+    </div>
+    
+    <!-- Cursor Light -->
+    <div id="cursor-light" class="fixed inset-0 z-0 pointer-events-none transition duration-300 lg:absolute opacity-0 dark:opacity-100" style="background: radial-gradient(600px at 0px 0px, rgba(29, 78, 216, 0.05), transparent 80%);"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-engineer-light/90 dark:bg-engineer-dark/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-slate-900 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Aaron Feng</a>
+            
+            <div class="flex items-center gap-8">
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html" class="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors nav-link">About</a></li>
+                    <li><a href="experience.html" class="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors nav-link">Experience</a></li>
+                    <li><a href="publication.html" class="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors nav-link">Publication</a></li>
+                    <li><a href="projects.html" class="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors nav-link">Projects</a></li>
+                    <li><a href="interests.html" class="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors nav-link">Interests</a></li>
+                    <li><a href="travel.html" class="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors nav-link">Travel</a></li>
+                </ul>
+
+                <button id="theme-toggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:ring-2 ring-teal-400 transition-all">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:px-24 relative z-10 min-h-[calc(100vh-12rem)]">
+
+        <section class="max-w-5xl mx-auto fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-slate-200">Travel Log</h2>
+            <p class="text-slate-600 dark:text-slate-400 mb-12 text-lg">
+                When I'm not coding, I try to get away from the screen. Here are some floating moments from my recent explorations.
+            </p>
+            
+            <div class="relative w-full h-[600px] bg-slate-100/50 dark:bg-slate-900/20 rounded-full overflow-hidden border border-slate-200 dark:border-slate-800/50 shadow-inner flex items-center justify-center group/container">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-500/5 via-transparent to-transparent opacity-50"></div>
+                
+                <!-- Greensboro -->
+                <div onclick="openGallery('greensboro')" class="absolute top-[20%] left-[15%] w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white dark:border-slate-800 overflow-hidden shadow-xl animate-float-slow hover:z-50 hover:scale-150 transition-all duration-500 cursor-pointer grayscale hover:grayscale-0">
+                    <img src="travel/Greensboro/Greensboro.jpeg" alt="Greensboro" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-sm">Greensboro</span>
+                    </div>
+                </div>
+
+                <!-- Qinghai -->
+                <div onclick="openGallery('qinghai')" class="absolute top-[10%] left-[45%] w-24 h-24 md:w-36 md:h-36 rounded-full border-4 border-white dark:border-slate-800 overflow-hidden shadow-xl animate-float-medium hover:z-50 hover:scale-150 transition-all duration-500 cursor-pointer grayscale hover:grayscale-0">
+                    <img src="travel/Qinghai/Qinghai.jpeg" alt="Qinghai" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-sm">Qinghai</span>
+                    </div>
+                </div>
+
+                <!-- Iceland -->
+                <div onclick="openGallery('iceland')" class="absolute top-[30%] right-[10%] w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-white dark:border-slate-800 overflow-hidden shadow-xl animate-float-fast hover:z-50 hover:scale-150 transition-all duration-500 cursor-pointer grayscale hover:grayscale-0">
+                    <img src="travel/Iceland/Iceland.jpeg" alt="Iceland" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-sm">Iceland</span>
+                    </div>
+                </div>
+
+                <!-- Hawaii -->
+                <div onclick="openGallery('hawaii')" class="absolute bottom-[15%] right-[20%] w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white dark:border-slate-800 overflow-hidden shadow-xl animate-float-slow hover:z-50 hover:scale-150 transition-all duration-500 cursor-pointer grayscale hover:grayscale-0">
+                    <img src="travel/Hawaii/Hawaii.jpeg" alt="Hawaii" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-sm">Hawaii</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center pb-8 text-sm text-slate-500 dark:text-slate-500 fade-in delay-3">
+        <p>Coded in Visual Studio Code. Built with <span class="font-medium text-slate-700 dark:text-slate-400">HTML & Tailwind CSS</span>. Deployed via GitHub Pages.</p>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/95 backdrop-blur-sm transition-all duration-300 opacity-0">
+        <div class="relative w-full max-w-6xl h-full max-h-screen p-8 overflow-y-auto">
+            <button onclick="closeGallery()" class="fixed top-8 right-8 text-white hover:text-teal-400 transition-colors z-50"><i class="fas fa-times text-3xl"></i></button>
+            <div class="text-center mb-12 mt-8">
+                <h2 id="gallery-title" class="text-4xl font-bold text-white mb-2 tracking-tight">Gallery Title</h2>
+                <p class="text-slate-400">Snapshot collection</p>
+            </div>
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20"></div>
+        </div>
+    </div>
+
+    <script>
+        const cursorLight = document.getElementById('cursor-light');
+        document.addEventListener('mousemove', (e) => {
+            cursorLight.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(99, 102, 241, 0.1), transparent 80%)`;
+        });
+
+        const themeBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        // Default to light mode if no preference is saved
+        if (localStorage.getItem('theme') === 'dark') {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        themeBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPath || (currentPath === '' && link.getAttribute('href') === 'index.html')) {
+                link.classList.add('text-teal-600', 'dark:text-teal-400');
+                link.classList.remove('text-slate-500', 'dark:text-slate-500');
+            }
+        });
+
+        const galleryData = {
+            greensboro: { title: "Greensboro", images: ["travel/Greensboro/Greensboro.jpeg", "travel/Greensboro/38F68163-BC92-41C9-BD9C-0BEAB1E25DB5_1_105_c.jpeg", "travel/Greensboro/6AF0DB75-B733-41E3-B9E4-C129F6BC77BB_1_105_c.jpeg", "travel/Greensboro/78F32384-56F4-4A65-9C42-7EDA773A108E_1_105_c.jpeg", "travel/Greensboro/DEC1E0A6-2261-4B1D-BF72-4CE4CF03FFB6_1_105_c.jpeg"] },
+            qinghai: { title: "Qinghai", images: ["travel/Qinghai/Qinghai.jpeg", "travel/Qinghai/03A51795-B201-4035-A80D-DF319F29D49E_1_105_c.jpeg", "travel/Qinghai/463B1DAD-E6B2-4E63-9C3E-6F907E8777A5_1_105_c.jpeg", "travel/Qinghai/8F2DEDC0-AC04-4AE1-8745-E561FF37C074_1_105_c.jpeg", "travel/Qinghai/B4F96531-EB57-4A8C-B0A3-9A274400E4E8_1_105_c.jpeg", "travel/Qinghai/BB5B9215-B9BF-4399-AFAC-56EBF8D3F5B2_1_102_a.jpeg", "travel/Qinghai/C2F7348B-2046-4A23-962B-4BD9D973CF4E_1_105_c.jpeg"] },
+            iceland: { title: "Iceland", images: ["travel/Iceland/Iceland.jpeg", "travel/Iceland/2C586CE4-28C4-4FAE-AB29-C17FC0DF22E6_4_5005_c.jpeg", "travel/Iceland/4AB900ED-D040-43E1-8676-D348E95EE000_4_5005_c.jpeg", "travel/Iceland/67A13766-4BD1-40A3-87F1-C4743E2DB0AC_4_5005_c.jpeg", "travel/Iceland/83595870-4512-4BC0-8E2E-06AFCA5918AC_4_5005_c.jpeg", "travel/Iceland/9C1E8E35-047D-4A13-AA12-EDF838E236DD_1_102_o.jpeg", "travel/Iceland/A2FFE418-6770-405E-8CB8-A0C6E4904D04_1_102_o.jpeg", "travel/Iceland/A39375C5-D34A-42E3-9243-D1A10A51415B_4_5005_c.jpeg", "travel/Iceland/B23225DD-45DE-4792-AD95-B69857AFB3D5_4_5005_c.jpeg", "travel/Iceland/B5319D75-2AC5-48A4-B63D-B9B9379DD94E_4_5005_c.jpeg", "travel/Iceland/D6FE3BFD-86C1-40DE-8EC7-349167C89883_1_105_c.jpeg", "travel/Iceland/E3259266-1CBE-450B-8CBE-030C458C5F6E_1_105_c.jpeg", "travel/Iceland/E6BB27D0-6CE1-46A9-BCD1-163D370816A2_1_102_o.jpeg", "travel/Iceland/EBDA1D00-9DD8-4D29-9448-806288DB23B8_1_105_c.jpeg"] },
+            hawaii: { title: "Hawaii", images: ["travel/Hawaii/Hawaii.jpeg", "travel/Hawaii/2D0C4E59-85A8-4805-9E47-EAE3274831F1_1_105_c.jpeg", "travel/Hawaii/3413AD6A-583F-488E-8A45-C234D09853A0_1_105_c.jpeg", "travel/Hawaii/3E82D7EB-65D8-421E-AD0F-DFF5097773AB_1_105_c.jpeg", "travel/Hawaii/48636DA1-5109-47F6-9C08-584F757D9A5E_4_5005_c.jpeg", "travel/Hawaii/5F527B01-3B61-470A-8E1C-AC8ADD7DA6AA_1_105_c.jpeg", "travel/Hawaii/BDD93260-C52B-4509-86C5-5FCB46D952B6_1_105_c.jpeg", "travel/Hawaii/C374B229-BE47-405E-AC1C-D6529BDF81F4_1_105_c.jpeg", "travel/Hawaii/D1B0452F-F7F3-4142-AC6C-B0419B3432A2_4_5005_c.jpeg", "travel/Hawaii/DC465376-F958-472F-8787-90EE42F15B52_1_105_c.jpeg", "travel/Hawaii/FC2C602F-5C87-4B7D-8B8B-248123E2EED1_1_105_c.jpeg"] }
+        };
+
+        const modal = document.getElementById('gallery-modal');
+        const galleryTitle = document.getElementById('gallery-title');
+        const galleryGrid = document.getElementById('gallery-grid');
+
+        function openGallery(location) {
+            const data = galleryData[location];
+            if (!data) return;
+            galleryTitle.innerText = data.title;
+            galleryGrid.innerHTML = '';
+            data.images.forEach((src, index) => {
+                const imgWrapper = document.createElement('div');
+                imgWrapper.className = `rounded-lg overflow-hidden shadow-xl opacity-0 transform translate-y-4 transition-all duration-500 delay-[${index * 100}ms]`;
+                imgWrapper.style.transitionDelay = `${index * 100}ms`;
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = "w-full h-64 object-cover hover:scale-105 transition-transform duration-500";
+                imgWrapper.appendChild(img);
+                galleryGrid.appendChild(imgWrapper);
+                setTimeout(() => { imgWrapper.classList.remove('opacity-0', 'translate-y-4'); }, 50 + (index * 100));
+            });
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                galleryGrid.innerHTML = '';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeGallery(); });
+    </script>
+</body>
+</html>

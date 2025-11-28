@@ -1,0 +1,31 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Typography overrides to match reference sizing */
+html { font-size: 17px; } /* base ~17px */
+
+.page__content {
+  font-size: 1rem;        /* body ~17px */
+  line-height: 1.7;
+}
+
+h1, .page__title { font-size: 1.7rem; font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 700; margin-top: 1.6rem; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+
+/* Project list formatting similar to reference */
+.page__content p { margin-bottom: 1.0rem; }
+.page__content p > strong { font-size: 1.05rem; }
+
+.align-left { margin: 0.2rem 1.0rem 0.6rem 0; }
+
+/* Link row style: website / report / code */
+.page__content a { text-decoration: none; }
+.page__content a:hover { text-decoration: underline; }

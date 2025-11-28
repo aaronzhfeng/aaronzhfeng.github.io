@@ -1,0 +1,11 @@
+{
+    "title": "ChemTransformer",
+    "description": "We build a transformer seq2seq system for ORD reaction prediction, exploring SMILES vs SELFIES and positional encoding designs.",
+    "tags": [
+        "Transformer",
+        "Reaction Prediction"
+    ],
+    "repo": null,
+    "report": "report_chem_transformer.pdf",
+    "image": "icon_chem_transformer.png"
+}

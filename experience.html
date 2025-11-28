@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron Feng | Home</title>
+    <title>Aaron Feng | Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +72,10 @@
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
         ::selection { background-color: #2dd4bf; color: #0f172a; }
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 300ms, transform 300ms; }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: opacity 300ms, transform 300ms; }
     </style>
 
     <style id="theme-colors">
@@ -182,203 +186,113 @@
         </div>
     </nav>
 
-    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0 relative z-10">
-        <div class="lg:flex lg:justify-between lg:gap-4">
+    <!-- Main Content -->
+    <main class="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:px-24 relative z-10 min-h-[calc(100vh-12rem)]">
 
-            <!-- LEFT COLUMN (Fixed Header) -->
-            <header class="lg:sticky lg:top-24 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-between lg:py-12">
-                <div>
-                    <!-- Profile Picture -->
-                    <div class="mb-8 relative w-32 h-32 group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-primary-400 to-blue-500 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                        <img src="image_34268e.png" alt="Aaron Feng" class="relative w-32 h-32 rounded-full object-cover border-2 border-base-200 dark:border-base-800 shadow-lg">
+        <section class="max-w-4xl mx-auto fade-in">
+            <h2 class="text-3xl font-bold mb-12 text-base-900 dark:text-base-200">Experience</h2>
+            <ol class="group/list border-l border-base-200 dark:border-base-800 ml-3 space-y-12">
+                <!-- Job 1 -->
+                <li class="relative pl-8">
+                    <span class="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border border-white bg-primary-500 dark:border-base-900 dark:bg-primary-400"></span>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="text-xl font-bold text-base-900 dark:text-base-200">Research Assistant</h3>
+                        <span class="text-sm font-semibold text-base-500 uppercase tracking-wide">Jan 2025 — Present</span>
                     </div>
-
-                    <h1 class="text-4xl font-bold tracking-tight text-base-900 dark:text-base-200 sm:text-5xl">
-                        <a href="index.html">Aaron Feng</a>
-                    </h1>
-                    <h2 class="mt-3 text-lg font-medium tracking-tight text-base-900 dark:text-base-200 sm:text-xl">
-                        Data Science & Statistics<br>
-                        <span class="text-primary-600 dark:text-primary-400 text-base">@ UC San Diego</span>
-                    </h2>
-                    <p class="mt-4 max-w-xs leading-normal text-base-600 dark:text-base-400">
-                        Building scalable AI systems, optimizing neural networks, and exploring algorithmic reasoning.
+                    <div class="mb-4">
+                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://lianhui.ucsd.edu/getinvolved.html" target="_blank">Q-Lab, UCSD</a>
+                        <div class="text-base-500 text-sm mt-1">Advisors: <a href="https://lianhui.ucsd.edu/" target="_blank" class="hover:text-primary-500">Prof. Lianhui Qin</a> and <a href="https://matt-seb-ho.github.io/" target="_blank" class="hover:text-primary-500">Matthew Ho</a></div>
+                    </div>
+                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
+                        Investigating memory systems for compositional reasoning on ARC-AGI. Designed feature extraction methodology for Program Synthesis memory format. Built complete concept dataset generation pipeline using LLMs.
                     </p>
-
-                    <!-- Navigation (In-page anchor links) -->
-                    <nav class="nav hidden lg:block" aria-label="In-page jump links">
-                        <ul class="mt-16 w-max">
-                            <li>
-                                <a class="group flex items-center py-3 active" href="#about">
-                                    <span class="nav-indicator mr-4 h-px w-16 bg-base-900 dark:bg-base-200 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-900 dark:text-base-200 group-hover:text-base-900 dark:group-hover:text-base-200">About</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#research">
-                                    <span class="nav-indicator mr-4 h-px w-8 bg-base-400 dark:bg-base-600 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-500 dark:text-base-500 group-hover:text-base-900 dark:group-hover:text-base-200">Latest Research</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#publication">
-                                    <span class="nav-indicator mr-4 h-px w-8 bg-base-400 dark:bg-base-600 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-500 dark:text-base-500 group-hover:text-base-900 dark:group-hover:text-base-200">Selected Publication</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="group flex items-center py-3" href="#project">
-                                    <span class="nav-indicator mr-4 h-px w-8 bg-base-400 dark:bg-base-600 transition-all group-hover:w-16 group-hover:bg-base-900 dark:group-hover:bg-base-200 motion-reduce:transition-none"></span>
-                                    <span class="nav-text text-xs font-bold uppercase tracking-widest text-base-500 dark:text-base-500 group-hover:text-base-900 dark:group-hover:text-base-200">Featured Project</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!-- Social Links -->
-                <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
-                    <li class="mr-5 text-xs">
-                        <a class="block text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors" href="https://github.com/aaronzhfeng" target="_blank" rel="noreferrer">
-                            <span class="sr-only">GitHub</span>
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                    </li>
-                    <li class="mr-5 text-xs">
-                        <a class="block text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors" href="https://linkedin.com/in/aaronzhfeng" target="_blank" rel="noreferrer">
-                            <span class="sr-only">LinkedIn</span>
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                    </li>
-                    <li class="mr-5 text-xs">
-                        <a class="block text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors" href="mailto:zhf004@ucsd.edu" target="_blank" rel="noreferrer">
-                            <span class="sr-only">Email</span>
-                            <i class="fas fa-envelope text-2xl"></i>
-                        </a>
-                    </li>
-                </ul>
-            </header>
-
-            <!-- RIGHT COLUMN (Scrollable Content) -->
-            <main id="content" class="pt-24 lg:w-[65%] lg:py-12">
-                
-                <!-- About Text -->
-                <section id="about" class="mb-16 scroll-mt-24 md:mb-24 lg:mb-36 lg:scroll-mt-32 fade-in">
-                    <div class="text-lg text-base-600 dark:text-base-400 leading-relaxed space-y-6">
-                        <p>
-                            I'm currently a senior undergraduate at <span class="font-medium text-base-900 dark:text-base-200">UC San Diego</span> pursuing a double major in <span class="font-medium text-primary-600 dark:text-primary-400">Data Science</span> and <span class="font-medium text-primary-600 dark:text-primary-400">Probability & Statistics</span> (GPA 3.83).
-                        </p>
-                        <p>
-                            My research interests lie at the intersection of <span class="font-medium text-base-900 dark:text-base-200">Machine Learning Systems</span> and <span class="font-medium text-base-900 dark:text-base-200">Scientific AI</span>. I love diving deep into how we can make LLMs more efficient through memory systems and optimizing training pipelines for open-source models.
-                        </p>
-                        <p>
-                            Outside of the lab, I'm usually analyzing datasets (sometimes just for fun), or exploring creative coding through algorithmic music generation.
-                        </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">LLM Agents</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Program Synthesis</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Python</span>
                     </div>
-                </section>
+                </li>
 
-                <!-- Latest Research Highlight -->
-                <section id="research" class="mb-16 scroll-mt-24 lg:scroll-mt-32 fade-in delay-1">
-                    <div class="flex justify-between items-baseline mb-8 border-b border-base-200 dark:border-base-800 pb-4">
-                        <h2 class="text-2xl font-bold text-base-900 dark:text-base-200">Latest Research</h2>
-                        <a href="experience.html" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View All →</a>
+                <!-- Job 2 -->
+                <li class="relative pl-8">
+                    <span class="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border border-white bg-primary-500 dark:border-base-900 dark:bg-primary-400"></span>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="text-xl font-bold text-base-900 dark:text-base-200">Research Assistant</h3>
+                        <span class="text-sm font-semibold text-base-500 uppercase tracking-wide">Jun 2025 — Present</span>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="group relative p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <div class="mb-3">
-                                <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wide text-primary-700 bg-primary-100 rounded-full dark:bg-primary-900/30 dark:text-primary-300">Current</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-base-900 dark:text-base-200 mb-2">
-                                Research Assistant @ <a href="https://lianhui.ucsd.edu/getinvolved.html" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">Q-Lab</a>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 mb-4 line-clamp-3">
-                                Investigating memory systems for compositional reasoning on ARC-AGI. Designed feature extraction methodology for Program Synthesis memory format.
-                            </p>
-                        </div>
-                        <div class="group relative p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <div class="mb-3">
-                                <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wide text-primary-700 bg-primary-100 rounded-full dark:bg-primary-900/30 dark:text-primary-300">Current</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-base-900 dark:text-base-200 mb-2">
-                                Research Assistant @ <a href="http://wanglab.ucsd.edu/" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">Wang Lab</a>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 mb-4 line-clamp-3">
-                                Architected a heterogeneous Mixture-of-Experts (MoE) system for chemical reaction prediction. Implemented GNN encoders with shortest-path positional encodings.
-                            </p>
-                        </div>
+                    <div class="mb-4">
+                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="http://wanglab.ucsd.edu/" target="_blank">Wang Lab, UCSD</a>
+                        <div class="text-base-500 text-sm mt-1">Advisors: <a href="https://chemistry.ucsd.edu/faculty/profiles/wang_wei.html" target="_blank" class="hover:text-primary-500">Prof. Wei Wang</a> and <a href="https://young-su-ko.github.io/" target="_blank" class="hover:text-primary-500">Young Su Ko</a></div>
                     </div>
-                </section>
-
-                <!-- Selected Publication Highlight -->
-                <section id="publication" class="mb-16 scroll-mt-24 lg:scroll-mt-32 fade-in delay-2">
-                    <div class="flex justify-between items-baseline mb-8 border-b border-base-200 dark:border-base-800 pb-4">
-                        <h2 class="text-2xl font-bold text-base-900 dark:text-base-200">Selected Publication</h2>
-                        <a href="publication.html" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View All →</a>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-white dark:bg-base-800/50 shadow-sm border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-colors hover:shadow-lg dark:hover:shadow-primary-900/10">
-                        <h3 class="font-bold text-xl text-base-900 dark:text-base-200 mb-2">
-                            <a href="https://arxiv.org/pdf/2509.04439" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">
-                                ArcMemo: Abstract Reasoning Composition with Lifelong LLM Memory
-                            </a>
-                        </h3>
-                        <p class="text-base-600 dark:text-base-400 mb-3 text-sm">
-                            Matthew Ho, Chen Si, <span class="font-bold text-base-900 dark:text-base-200">Zhaoxiang Feng</span>, Fangxu Yu, Yichi Yang, Zhijian Liu, Zhiting Hu, Lianhui Qin.
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <span class="inline-flex items-center rounded-full bg-base-100 dark:bg-base-700 px-2.5 py-0.5 text-xs font-medium text-base-800 dark:text-base-200">
-                                ICLR 2025 (Under Review)
-                            </span>
-                            <a href="https://arxiv.org/pdf/2509.04439" target="_blank" class="text-sm text-primary-600 dark:text-primary-400 hover:underline"><i class="fas fa-file-pdf mr-1"></i> PDF</a>
-                            <a href="https://github.com/matt-seb-ho/arc_memo" target="_blank" class="text-sm text-primary-600 dark:text-primary-400 hover:underline"><i class="fab fa-github mr-1"></i> Code</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Featured Project Highlight -->
-                <section id="project" class="mb-16 scroll-mt-24 lg:scroll-mt-32 fade-in delay-3">
-                    <div class="flex justify-between items-baseline mb-8 border-b border-base-200 dark:border-base-800 pb-4">
-                        <h2 class="text-2xl font-bold text-base-900 dark:text-base-200">Featured Project</h2>
-                        <a href="projects.html" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View All →</a>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="relative group block p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <h3 class="font-bold text-lg text-base-900 dark:text-base-200 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                                LLM Training & Inference (llm_TII)
-                                <span class="absolute inset-0"></span>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 text-sm mb-4">
-                                Developing scalable pipelines for training and inference of open-source LLMs.
-                            </p>
-                            <div class="flex flex-wrap gap-2 relative z-10">
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Docker</span>
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Hydra</span>
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">PyTorch</span>
-                            </div>
-                            <a href="https://github.com/aaronzhfeng/llm_TII" target="_blank" class="absolute top-6 right-6 text-base-400 group-hover:text-primary-500"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                        <div class="relative group block p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
-                            <h3 class="font-bold text-lg text-base-900 dark:text-base-200 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                                Quantify Credibility
-                                <span class="absolute inset-0"></span>
-                            </h3>
-                            <p class="text-base-600 dark:text-base-400 text-sm mb-4">
-                                A data-driven framework to assess and quantify the credibility of information sources.
-                            </p>
-                            <div class="flex flex-wrap gap-2 relative z-10">
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">NLP</span>
-                                <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Python</span>
-                            </div>
-                            <a href="https://github.com/aaronzhfeng/quantify_credibility" target="_blank" class="absolute top-6 right-6 text-base-400 group-hover:text-primary-500"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </section>
-
-                <footer class="max-w-md pb-16 text-sm text-base-500 dark:text-base-500 sm:pb-0 fade-in delay-3">
-                    <p>
-                        Coded in Visual Studio Code. Built with <span class="font-medium text-base-700 dark:text-base-400">HTML & Tailwind CSS</span>. Deployed via GitHub Pages.
+                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
+                        Architected a heterogeneous Mixture-of-Experts (MoE) system for chemical reaction prediction. Implemented GNN encoders with shortest-path positional encodings for stereochemistry-sensitive modeling.
                     </p>
-                </footer>
-            </main>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">PyTorch Geometric</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">MoE</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">GNNs</span>
+                    </div>
+                </li>
+
+                <!-- Job 3 -->
+                <li class="relative pl-8">
+                    <span class="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border border-white bg-primary-500 dark:border-base-900 dark:bg-primary-400"></span>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="text-xl font-bold text-base-900 dark:text-base-200">Student Researcher</h3>
+                        <span class="text-sm font-semibold text-base-500 uppercase tracking-wide">Sep 2025 — Present</span>
+                    </div>
+                    <div class="mb-4">
+                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://dsc-capstone.org/" target="_blank">HDSI Capstone</a>
+                        <div class="text-base-500 text-sm mt-1">Advisor: <a href="https://cseweb.ucsd.edu/~haozhang/" target="_blank" class="hover:text-primary-500">Prof. Hao Zhang</a></div>
+                    </div>
+                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
+                        Building scalable pipelines for training open-source large language models. Benchmarking inference frameworks and exploring alignment strategies.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Distributed Training</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Docker</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">AWS</span>
+                    </div>
+                </li>
+
+                <!-- Job 4 -->
+                <li class="relative pl-8">
+                    <span class="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border border-white bg-primary-500 dark:border-base-900 dark:bg-primary-400"></span>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="text-xl font-bold text-base-900 dark:text-base-200">Research Assistant</h3>
+                        <span class="text-sm font-semibold text-base-500 uppercase tracking-wide">Sep 2023 — Jun 2024</span>
+                    </div>
+                    <div class="mb-4">
+                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://usipc.ucsd.edu/" target="_blank">U.S. Immigration Policy Center</a>
+                        <div class="text-base-500 text-sm mt-1">Advisors: <a href="https://polisci.ucsd.edu/people/faculty/faculty-directory/currently-active-faculty/wong-profile.html" target="_blank" class="hover:text-primary-500">Prof. Tom K. Wong</a> and <a href="https://gabrielderoche.com/" target="_blank" class="hover:text-primary-500">Dr. Gabriel De Roche</a></div>
+                    </div>
+                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
+                        Utilized Python and R to analyze historical naturalization data and forecast long-term immigration trends. Developed data pipelines and visual dashboards.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">R</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Data Vis</span>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center pb-8 text-sm text-base-500 dark:text-base-500 fade-in delay-3">
+        <p>Coded in Visual Studio Code. Built with <span class="font-medium text-base-700 dark:text-base-400">HTML & Tailwind CSS</span>. Deployed via GitHub Pages.</p>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-base-900/95 backdrop-blur-sm transition-all duration-300 opacity-0">
+        <div class="relative w-full max-w-6xl h-full max-h-screen p-8 overflow-y-auto">
+            <button onclick="closeGallery()" class="fixed top-8 right-8 text-white hover:text-primary-400 transition-colors z-50"><i class="fas fa-times text-3xl"></i></button>
+            <div class="text-center mb-12 mt-8">
+                <h2 id="gallery-title" class="text-4xl font-bold text-white mb-2 tracking-tight">Gallery Title</h2>
+                <p class="text-base-400">Snapshot collection</p>
+            </div>
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20"></div>
         </div>
     </div>
 
@@ -409,62 +323,48 @@
                 link.classList.remove('text-base-500', 'dark:text-base-500');
             }
         });
-        
-        // Scroll Spy Logic
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav ul li a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            // Check for bottom of page
-        // Check for bottom of page
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        
-        // If we are at the very bottom, highlight the last section
-        if (scrollPosition >= documentHeight - 50) { // 50px buffer
-             const lastSection = sections[sections.length - 1];
-             if (lastSection) {
-                 current = lastSection.getAttribute('id');
-             }
-        } else {
-            // Standard scroll spy logic
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                // Offset calculation to account for fixed header/sticky top
-                if (scrollY >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
-                }
+        const galleryData = {
+            greensboro: { title: "Greensboro", images: ["travel/Greensboro/Greensboro.jpeg", "travel/Greensboro/38F68163-BC92-41C9-BD9C-0BEAB1E25DB5_1_105_c.jpeg", "travel/Greensboro/6AF0DB75-B733-41E3-B9E4-C129F6BC77BB_1_105_c.jpeg", "travel/Greensboro/78F32384-56F4-4A65-9C42-7EDA773A108E_1_105_c.jpeg", "travel/Greensboro/DEC1E0A6-2261-4B1D-BF72-4CE4CF03FFB6_1_105_c.jpeg"] },
+            qinghai: { title: "Qinghai", images: ["travel/Qinghai/Qinghai.jpeg", "travel/Qinghai/03A51795-B201-4035-A80D-DF319F29D49E_1_105_c.jpeg", "travel/Qinghai/463B1DAD-E6B2-4E63-9C3E-6F907E8777A5_1_105_c.jpeg", "travel/Qinghai/8F2DEDC0-AC04-4AE1-8745-E561FF37C074_1_105_c.jpeg", "travel/Qinghai/B4F96531-EB57-4A8C-B0A3-9A274400E4E8_1_105_c.jpeg", "travel/Qinghai/BB5B9215-B9BF-4399-AFAC-56EBF8D3F5B2_1_102_a.jpeg", "travel/Qinghai/C2F7348B-2046-4A23-962B-4BD9D973CF4E_1_105_c.jpeg"] },
+            iceland: { title: "Iceland", images: ["travel/Iceland/Iceland.jpeg", "travel/Iceland/2C586CE4-28C4-4FAE-AB29-C17FC0DF22E6_4_5005_c.jpeg", "travel/Iceland/4AB900ED-D040-43E1-8676-D348E95EE000_4_5005_c.jpeg", "travel/Iceland/67A13766-4BD1-40A3-87F1-C4743E2DB0AC_4_5005_c.jpeg", "travel/Iceland/83595870-4512-4BC0-8E2E-06AFCA5918AC_4_5005_c.jpeg", "travel/Iceland/9C1E8E35-047D-4A13-AA12-EDF838E236DD_1_102_o.jpeg", "travel/Iceland/A2FFE418-6770-405E-8CB8-A0C6E4904D04_1_102_o.jpeg", "travel/Iceland/A39375C5-D34A-42E3-9243-D1A10A51415B_4_5005_c.jpeg", "travel/Iceland/B23225DD-45DE-4792-AD95-B69857AFB3D5_4_5005_c.jpeg", "travel/Iceland/B5319D75-2AC5-48A4-B63D-B9B9379DD94E_4_5005_c.jpeg", "travel/Iceland/D6FE3BFD-86C1-40DE-8EC7-349167C89883_1_105_c.jpeg", "travel/Iceland/E3259266-1CBE-450B-8CBE-030C458C5F6E_1_105_c.jpeg", "travel/Iceland/E6BB27D0-6CE1-46A9-BCD1-163D370816A2_1_102_o.jpeg", "travel/Iceland/EBDA1D00-9DD8-4D29-9448-806288DB23B8_1_105_c.jpeg"] },
+            hawaii: { title: "Hawaii", images: ["travel/Hawaii/Hawaii.jpeg", "travel/Hawaii/2D0C4E59-85A8-4805-9E47-EAE3274831F1_1_105_c.jpeg", "travel/Hawaii/3413AD6A-583F-488E-8A45-C234D09853A0_1_105_c.jpeg", "travel/Hawaii/3E82D7EB-65D8-421E-AD0F-DFF5097773AB_1_105_c.jpeg", "travel/Hawaii/48636DA1-5109-47F6-9C08-584F757D9A5E_4_5005_c.jpeg", "travel/Hawaii/5F527B01-3B61-470A-8E1C-AC8ADD7DA6AA_1_105_c.jpeg", "travel/Hawaii/BDD93260-C52B-4509-86C5-5FCB46D952B6_1_105_c.jpeg", "travel/Hawaii/C374B229-BE47-405E-AC1C-D6529BDF81F4_1_105_c.jpeg", "travel/Hawaii/D1B0452F-F7F3-4142-AC6C-B0419B3432A2_4_5005_c.jpeg", "travel/Hawaii/DC465376-F958-472F-8787-90EE42F15B52_1_105_c.jpeg", "travel/Hawaii/FC2C602F-5C87-4B7D-8B8B-248123E2EED1_1_105_c.jpeg"] }
+        };
+
+        const modal = document.getElementById('gallery-modal');
+        const galleryTitle = document.getElementById('gallery-title');
+        const galleryGrid = document.getElementById('gallery-grid');
+
+        function openGallery(location) {
+            const data = galleryData[location];
+            if (!data) return;
+            galleryTitle.innerText = data.title;
+            galleryGrid.innerHTML = '';
+            data.images.forEach((src, index) => {
+                const imgWrapper = document.createElement('div');
+                imgWrapper.className = `rounded-lg overflow-hidden shadow-xl opacity-0 transform tranbase-y-4 transition-all duration-500 delay-[${index * 100}ms]`;
+                imgWrapper.style.transitionDelay = `${index * 100}ms`;
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = "w-full h-64 object-cover hover:scale-105 transition-transform duration-500";
+                imgWrapper.appendChild(img);
+                galleryGrid.appendChild(imgWrapper);
+                setTimeout(() => { imgWrapper.classList.remove('opacity-0', 'tranbase-y-4'); }, 50 + (index * 100));
             });
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+            document.body.style.overflow = 'hidden';
         }
 
-        navLinks.forEach(link => {
-                const indicator = link.querySelector('.nav-indicator');
-                const text = link.querySelector('.nav-text');
-                
-                link.classList.remove('active');
-                
-                // Reset styling
-                if (indicator && text) {
-                   indicator.classList.remove('w-16', 'bg-base-900', 'dark:bg-base-200');
-                   indicator.classList.add('w-8', 'bg-base-400', 'dark:bg-base-600');
-                   
-                   text.classList.remove('text-base-900', 'dark:text-base-200');
-                   text.classList.add('text-base-500', 'dark:text-base-500');
-
-                   // Check if link href matches current section id
-                   if (link.getAttribute('href') === `#${current}`) {
-                       link.classList.add('active');
-                       indicator.classList.remove('w-8', 'bg-base-400', 'dark:bg-base-600');
-                       indicator.classList.add('w-16', 'bg-base-900', 'dark:bg-base-200');
-                       
-                       text.classList.remove('text-base-500', 'dark:text-base-500');
-                       text.classList.add('text-base-900', 'dark:text-base-200');
-                   }
-                }
-            });
-        });
+        function closeGallery() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                galleryGrid.innerHTML = '';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeGallery(); });
     </script>
 
     <script>
@@ -613,16 +513,14 @@
             
             localStorage.setItem('color-theme', themeName);
             
-            // Update UI state for active button (if on a page with the new dropdown)
+            // Update UI state for active button
             const btns = document.querySelectorAll('[data-theme]');
             if (btns.length > 0) {
                 btns.forEach(btn => {
                     const isSelected = btn.getAttribute('data-theme') === themeName;
-                    const check = btn.querySelector('i.active-check'); // Not implemented in HTML yet, but good for future
                     
                     if (isSelected) {
                         btn.classList.add('bg-base-50', 'dark:bg-base-700/50', 'ring-1', 'ring-base-200', 'dark:ring-base-700');
-                        // Add checkmark logic here if we add the icon later
                     } else {
                         btn.classList.remove('bg-base-50', 'dark:bg-base-700/50', 'ring-1', 'ring-base-200', 'dark:ring-base-700');
                     }
