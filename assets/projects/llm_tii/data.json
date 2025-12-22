@@ -1,12 +1,12 @@
 {
-    "title": "LLM Training & Inference (llm_TII)",
-    "description": "Developing scalable pipelines for training and inference of open-source LLMs. Benchmarking various frameworks to optimize performance and exploring alignment strategies.",
+    "title": "LLM Foundry: Scalable Training & Inference",
+    "description": "Scalable LLM training and inference pipelines using llm-foundry on NVIDIA B200 GPUs. Includes distributed training configurations, Hydra-based experiment management, and benchmarking across different model sizes and frameworks.",
     "tags": [
-        "Docker",
-        "Hydra",
+        "Distributed Training",
+        "llm-foundry",
         "PyTorch"
     ],
-    "repo": "https://github.com/aaronzhfeng/llm_TII",
+    "repo": "https://github.com/aaronzhfeng/llm-foundry",
     "report": null,
-    "image": "icon_llm_tii.png"
+    "image": "icon_llm_tii.svg"
 }

@@ -1,0 +1,13 @@
+{
+    "title": "LabMemo: Memory for Scientific Agents",
+    "description": "Concept-level memory system for autonomous scientific agents. Features a Planner–Selector–Verifier architecture that enables sample-efficient learning and prevents catastrophic forgetting through additive memory mechanisms. Validated on wave equation neural operator tasks.",
+    "tags": [
+        "Scientific AI",
+        "Memory Systems",
+        "Neural Operators"
+    ],
+    "repo": "https://github.com/aaronzhfeng/lab_memo",
+    "report": null,
+    "image": "icon_lab_memo.svg"
+}
+

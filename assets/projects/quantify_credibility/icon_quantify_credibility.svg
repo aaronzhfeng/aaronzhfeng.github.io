@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="280" fill="#f8f8f6"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" fill="#333" font-family="Georgia, serif" font-size="14" text-anchor="middle" font-weight="600">LLM Calibration: Confidence vs Accuracy</text>
+  
+  <!-- Axes -->
+  <line x1="60" y1="220" x2="350" y2="220" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="50" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Grid lines -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="60" y1="90" x2="350" y2="90"/>
+    <line x1="60" y1="130" x2="350" y2="130"/>
+    <line x1="60" y1="170" x2="350" y2="170"/>
+    <line x1="130" y1="50" x2="130" y2="220"/>
+    <line x1="200" y1="50" x2="200" y2="220"/>
+    <line x1="270" y1="50" x2="270" y2="220"/>
+  </g>
+  
+  <!-- Y-axis labels -->
+  <text x="50" y="55" fill="#666" font-family="system-ui" font-size="9" text-anchor="end">1.0</text>
+  <text x="50" y="95" fill="#666" font-family="system-ui" font-size="9" text-anchor="end">0.75</text>
+  <text x="50" y="135" fill="#666" font-family="system-ui" font-size="9" text-anchor="end">0.5</text>
+  <text x="50" y="175" fill="#666" font-family="system-ui" font-size="9" text-anchor="end">0.25</text>
+  <text x="50" y="225" fill="#666" font-family="system-ui" font-size="9" text-anchor="end">0</text>
+  
+  <!-- X-axis labels -->
+  <text x="60" y="238" fill="#666" font-family="system-ui" font-size="9" text-anchor="middle">0</text>
+  <text x="130" y="238" fill="#666" font-family="system-ui" font-size="9" text-anchor="middle">0.25</text>
+  <text x="200" y="238" fill="#666" font-family="system-ui" font-size="9" text-anchor="middle">0.5</text>
+  <text x="270" y="238" fill="#666" font-family="system-ui" font-size="9" text-anchor="middle">0.75</text>
+  <text x="340" y="238" fill="#666" font-family="system-ui" font-size="9" text-anchor="middle">1.0</text>
+  
+  <!-- Confidence histogram bars -->
+  <rect x="75" y="195" width="25" height="25" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="110" y="175" width="25" height="45" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="145" y="145" width="25" height="75" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="180" y="115" width="25" height="105" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="215" y="130" width="25" height="90" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="250" y="155" width="25" height="65" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="285" y="180" width="25" height="40" fill="#a8d4c4" stroke="#6ab39a"/>
+  <rect x="320" y="200" width="25" height="20" fill="#a8d4c4" stroke="#6ab39a"/>
+  
+  <!-- Perfect calibration line (diagonal) -->
+  <line x1="60" y1="220" x2="350" y2="50" stroke="#888" stroke-width="1.5" stroke-dasharray="6,3"/>
+  
+  <!-- Actual calibration curve -->
+  <path d="M 60 220 Q 100 195 140 165 Q 180 130 220 105 Q 260 85 300 70 Q 330 60 350 55" 
+        fill="none" stroke="#c45a3b" stroke-width="2.5"/>
+  
+  <!-- Data points -->
+  <circle cx="87" cy="200" r="4" fill="#c45a3b"/>
+  <circle cx="122" cy="175" r="4" fill="#c45a3b"/>
+  <circle cx="157" cy="148" r="4" fill="#c45a3b"/>
+  <circle cx="192" cy="118" r="4" fill="#c45a3b"/>
+  <circle cx="227" cy="100" r="4" fill="#c45a3b"/>
+  <circle cx="262" cy="85" r="4" fill="#c45a3b"/>
+  <circle cx="297" cy="72" r="4" fill="#c45a3b"/>
+  <circle cx="332" cy="58" r="4" fill="#c45a3b"/>
+  
+  <!-- ECE shaded area (gap between curves) -->
+  <path d="M 140 165 L 140 133 M 220 105 L 220 90" stroke="#c45a3b" stroke-width="1" stroke-dasharray="2,2" opacity="0.5"/>
+  
+  <!-- Axis titles -->
+  <text x="200" y="258" fill="#333" font-family="system-ui" font-size="11" text-anchor="middle">Confidence</text>
+  <text x="22" y="135" fill="#333" font-family="system-ui" font-size="11" text-anchor="middle" transform="rotate(-90 22 135)">Accuracy</text>
+  
+  <!-- Legend -->
+  <g transform="translate(260, 250)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#888" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="25" y="4" fill="#666" font-family="system-ui" font-size="8">Perfect</text>
+    <line x1="65" y1="0" x2="85" y2="0" stroke="#c45a3b" stroke-width="2"/>
+    <text x="90" y="4" fill="#666" font-family="system-ui" font-size="8">Model</text>
+  </g>
+</svg>

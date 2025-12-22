@@ -1,0 +1,13 @@
+{
+    "title": "ChemMoE Transformer",
+    "description": "Mixture-of-Experts Transformer for chemical reaction prediction with heterogeneous expert architectures. Explores how different expert specializations can capture diverse reaction mechanisms.",
+    "tags": [
+        "MoE",
+        "Chemistry ML",
+        "Transformer"
+    ],
+    "repo": "https://github.com/aaronzhfeng/ChemMoETransformer",
+    "report": null,
+    "image": "icon_chem_moe.svg"
+}
+

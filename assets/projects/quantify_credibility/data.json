@@ -1,11 +1,12 @@
 {
-    "title": "Quantify Credibility",
-    "description": "A data-driven framework to assess and quantify the credibility of information sources. Leverages statistical modeling and NLP techniques to identify bias and reliability scores.",
+    "title": "LLM Uncertainty Quantification",
+    "description": "DSC 180A/B Capstone with Prof. Yian Ma: Research toolkit implementing mutual-information-based calibration and NLI-driven semantic clustering for quantifying LLM uncertainty. Evaluates expected calibration error (ECE) and epistemic vs. aleatoric uncertainty across TruthfulQA, ARC, SQuAD v2, and more.",
     "tags": [
-        "NLP",
-        "Python"
+        "LLM Calibration",
+        "Mutual Information",
+        "NLI Clustering"
     ],
     "repo": "https://github.com/aaronzhfeng/quantify_credibility",
     "report": null,
-    "image": "icon_quantify_credibility.png"
+    "image": "icon_quantify_credibility.svg"
 }

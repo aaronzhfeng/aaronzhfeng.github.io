@@ -1,11 +1,12 @@
 {
-    "title": "Efficient Expert\u2011Guided Retrieval",
-    "description": "We introduce a lightweight single\u2011block Mixture\u2011of\u2011Experts module for TinyBERT to enhance dense retrieval under tight compute. We find consistent gains in NDCG@10/Recall on BEIR SciFact while preserving efficiency.",
+    "title": "MoE-Enhanced Dense Retrieval",
+    "description": "Lightweight single-block Mixture-of-Experts module for TinyBERT to enhance dense retrieval under tight compute. Achieves consistent gains in NDCG@10 and Recall on BEIR SciFact while preserving inference efficiency.",
     "tags": [
         "MoE",
-        "BERT"
+        "Dense Retrieval",
+        "TinyBERT"
     ],
-    "repo": null,
+    "repo": "https://github.com/aaronzhfeng/Lightweight_MoE",
     "report": "report_expert_guided_retrieval.pdf",
-    "image": "icon_retrieval.png"
+    "image": "icon_retrieval.svg"
 }

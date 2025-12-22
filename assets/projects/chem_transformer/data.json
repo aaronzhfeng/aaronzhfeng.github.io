@@ -1,11 +1,12 @@
 {
     "title": "ChemTransformer",
-    "description": "We build a transformer seq2seq system for ORD reaction prediction, exploring SMILES vs SELFIES and positional encoding designs.",
+    "description": "Transformer-based chemical reaction prediction using event-based SMILES representations with compound-aware positional encoding. Trained on ORD (Open Reaction Database) with configurable encoder-decoder architecture. Features role annotations for reactants, conditions, and products.",
     "tags": [
         "Transformer",
+        "SMILES",
         "Reaction Prediction"
     ],
-    "repo": null,
+    "repo": "https://github.com/aaronzhfeng/ChemTransformer",
     "report": "report_chem_transformer.pdf",
-    "image": "icon_chem_transformer.png"
+    "image": "icon_chem_transformer.svg"
 }

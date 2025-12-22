@@ -120,11 +120,11 @@
 
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-engineer-light/90 dark:bg-engineer-dark/90 backdrop-blur border-b border-base-200 dark:border-base-800 transition-colors duration-300">
-        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center relative">
             <a href="index.html" class="text-2xl font-bold text-base-900 dark:text-base-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Aaron Feng</a>
             
             <div class="flex items-center gap-8">
-                <ul class="hidden md:flex space-x-8">
+                <ul id="site-nav" class="hidden flex flex-col space-y-3 absolute top-full left-0 right-0 mt-3 mx-6 rounded-2xl bg-engineer-light/95 dark:bg-engineer-dark/95 backdrop-blur border border-base-200 dark:border-base-800 p-4 shadow-lg md:static md:mx-0 md:mt-0 md:rounded-none md:bg-transparent md:backdrop-blur-0 md:border-0 md:p-0 md:shadow-none md:flex md:flex-row md:space-y-0 md:space-x-8 md:items-center">
                     <li><a href="index.html" class="text-sm font-bold uppercase tracking-widest text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors nav-link">About</a></li>
                     <li><a href="experience.html" class="text-sm font-bold uppercase tracking-widest text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors nav-link">Experience</a></li>
                     <li><a href="publication.html" class="text-sm font-bold uppercase tracking-widest text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors nav-link">Publication</a></li>
@@ -182,6 +182,12 @@
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                 </button>
+
+                <button id="mobile-menu-button" aria-controls="site-nav" aria-expanded="false" class="md:hidden w-10 h-10 p-2 rounded-full bg-base-200 dark:bg-base-800 text-base-800 dark:text-base-200 hover:ring-2 ring-primary-400 transition-all flex items-center justify-center">
+                    <span class="sr-only">Toggle navigation menu</span>
+                    <i class="fas fa-bars" data-menu-icon="open"></i>
+                    <i class="fas fa-times hidden" data-menu-icon="close"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -190,20 +196,55 @@
     <main class="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:px-24 relative z-10 min-h-[calc(100vh-12rem)]">
 
         <section class="max-w-4xl mx-auto fade-in">
-            <h2 class="text-3xl font-bold mb-12 text-base-900 dark:text-base-200">Publication</h2>
-            <div class="group relative grid gap-4 p-6 rounded-lg hover:bg-base-100 dark:hover:bg-base-800/50 transition-colors">
+            <h2 class="text-3xl font-bold mb-12 text-base-900 dark:text-base-200">Publications</h2>
+            
+            <!-- ArcMemo -->
+            <div class="group relative grid gap-4 p-6 rounded-lg hover:bg-base-100 dark:hover:bg-base-800/50 transition-colors mb-6">
+                <div class="flex flex-wrap gap-2 mb-2">
+                    <span class="inline-flex items-center rounded-full bg-amber-100 dark:bg-amber-400/10 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:text-amber-300">
+                        🏆 Runner-up, ARC Prize 2025 Paper Awards
+                    </span>
+                </div>
                 <h3 class="font-bold text-lg text-base-900 dark:text-base-200">
-                    <a href="https://arxiv.org/pdf/2509.04439" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">
+                    <a href="https://arxiv.org/abs/2509.04439" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">
                         ArcMemo: Abstract Reasoning Composition with Lifelong LLM Memory
                     </a>
                 </h3>
                 <p class="text-base-600 dark:text-base-400">
                     Matthew Ho, Chen Si, <span class="font-bold text-base-900 dark:text-base-200">Zhaoxiang Feng</span>, Fangxu Yu, Yichi Yang, Zhijian Liu, Zhiting Hu, Lianhui Qin.
                 </p>
-                <p class="italic text-base-500 text-sm">Under review at ICLR 2025.</p>
+                <p class="italic text-base-500 text-sm">Under review at ICLR 2026.</p>
+                <p class="text-base-500 text-sm mt-2">
+                    Concept-level memory for test-time continual learning on ARC-AGI abstract reasoning puzzles. Achieved 59.33% official score (+7.5% relative gain over no-memory baseline).
+                </p>
                 <div class="flex gap-4 mt-2">
-                    <a href="https://arxiv.org/pdf/2509.04439" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fas fa-file-pdf mr-1"></i>arXiv</a>
-                    <a href="https://github.com/matt-seb-ho/arc_memo" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fab fa-github mr-1"></i>code</a>
+                    <a href="https://arxiv.org/abs/2509.04439" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fas fa-file-pdf mr-1"></i>arXiv</a>
+                    <a href="https://github.com/matt-seb-ho/arc_memo" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fab fa-github mr-1"></i>Code</a>
+                </div>
+            </div>
+
+            <!-- LabMemo -->
+            <div class="group relative grid gap-4 p-6 rounded-lg hover:bg-base-100 dark:hover:bg-base-800/50 transition-colors">
+                <div class="flex flex-wrap gap-2 mb-2">
+                    <span class="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-400/10 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:text-primary-300">
+                        First Author
+                    </span>
+                </div>
+                <h3 class="font-bold text-lg text-base-900 dark:text-base-200">
+                    <a href="https://github.com/aaronzhfeng/lab_memo/blob/main/paper/LabMemo_Paper.pdf" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">
+                        LabMemo: Concept-Level Memory for Autonomous Scientific Discovery
+                    </a>
+                </h3>
+                <p class="text-base-600 dark:text-base-400">
+                    <span class="font-bold text-base-900 dark:text-base-200">Zhaoxiang Feng</span>, David Scott Lewis, Enrique Zueco.
+                </p>
+                <p class="italic text-base-500 text-sm">Accepted at IEEE IROS 2025 Workshop on Embodied AI and Robotics for Future Scientific Discovery (AIR4S).</p>
+                <p class="text-base-500 text-sm mt-2">
+                    Extends concept-level memory to autonomous scientific agents with a Planner–Selector–Verifier architecture. Achieved 4.01% parameter identification error from 50 samples and 87% task retention.
+                </p>
+                <div class="flex gap-4 mt-2">
+                    <a href="https://github.com/aaronzhfeng/lab_memo/blob/main/paper/LabMemo_Paper.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fas fa-file-pdf mr-1"></i>PDF</a>
+                    <a href="https://github.com/aaronzhfeng/lab_memo" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fab fa-github mr-1"></i>Code</a>
                 </div>
             </div>
         </section>
@@ -254,6 +295,51 @@
                 link.classList.remove('text-base-500', 'dark:text-base-500');
             }
         });
+
+        // Mobile navigation toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const siteNav = document.getElementById('site-nav');
+
+        if (mobileMenuBtn && siteNav) {
+            const openIcon = mobileMenuBtn.querySelector('[data-menu-icon="open"]');
+            const closeIcon = mobileMenuBtn.querySelector('[data-menu-icon="close"]');
+
+            const setMenuOpen = (isOpen) => {
+                siteNav.classList.toggle('hidden', !isOpen);
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+                if (openIcon && closeIcon) {
+                    openIcon.classList.toggle('hidden', isOpen);
+                    closeIcon.classList.toggle('hidden', !isOpen);
+                }
+            };
+
+            setMenuOpen(false);
+
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = !siteNav.classList.contains('hidden');
+                setMenuOpen(!isOpen);
+            });
+
+            siteNav.querySelectorAll('a').forEach((a) => {
+                a.addEventListener('click', () => setMenuOpen(false));
+            });
+
+            document.addEventListener('click', (e) => {
+                if (siteNav.classList.contains('hidden')) return;
+                if (siteNav.contains(e.target) || mobileMenuBtn.contains(e.target)) return;
+                setMenuOpen(false);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') setMenuOpen(false);
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) setMenuOpen(false);
+            });
+        }
 
         const galleryData = {
             greensboro: { title: "Greensboro", images: ["travel/Greensboro/Greensboro.jpeg", "travel/Greensboro/38F68163-BC92-41C9-BD9C-0BEAB1E25DB5_1_105_c.jpeg", "travel/Greensboro/6AF0DB75-B733-41E3-B9E4-C129F6BC77BB_1_105_c.jpeg", "travel/Greensboro/78F32384-56F4-4A65-9C42-7EDA773A108E_1_105_c.jpeg", "travel/Greensboro/DEC1E0A6-2261-4B1D-BF72-4CE4CF03FFB6_1_105_c.jpeg"] },

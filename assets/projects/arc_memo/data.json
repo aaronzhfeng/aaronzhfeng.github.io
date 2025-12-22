@@ -1,0 +1,13 @@
+{
+    "title": "ArcMemo: Memory for Abstract Reasoning",
+    "description": "Concept-level memory framework for test-time continual learning on ARC-AGI puzzles. Implements memory initialization, selective retrieval, and online expansion to enable LLMs to accumulate and reuse abstract reasoning concepts. Runner-up at ARC Prize 2025.",
+    "tags": [
+        "ARC-AGI",
+        "Test-Time Learning",
+        "LLM Memory"
+    ],
+    "repo": "https://github.com/aaronzhfeng/arc_memo",
+    "report": null,
+    "image": "icon_arc_memo.png"
+}
+

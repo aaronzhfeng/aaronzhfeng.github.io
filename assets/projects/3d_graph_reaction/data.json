@@ -1,11 +1,12 @@
 {
-    "title": "3D\u2011Enhanced Graph Reaction Prediction",
-    "description": "We introduce a 3D\u2011aware reaction model by pre\u2011training 2D/3D MPNNs with an InfoNCE objective (QM9) and fine\u2011tuning a 2D encoder + LSTM decoder on ORD.",
+    "title": "3D Graph Reaction Prediction",
+    "description": "3D-aware reaction model pre-training 2D/3D MPNNs with InfoNCE contrastive objective on QM9, then fine-tuning a 2D encoder with LSTM decoder on ORD. Explores how 3D molecular geometry improves reaction outcome prediction.",
     "tags": [
         "GNN",
-        "3D-Geometry"
+        "3D Geometry",
+        "Contrastive Learning"
     ],
-    "repo": null,
+    "repo": "https://github.com/aaronzhfeng/Graph2SMILES",
     "report": "report_3d_graph_reaction.pdf",
-    "image": "icon_3d_graph.png"
+    "image": "icon_3d_graph.svg"
 }

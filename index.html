@@ -116,11 +116,11 @@
 
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-engineer-light/90 dark:bg-engineer-dark/90 backdrop-blur border-b border-base-200 dark:border-base-800 transition-colors duration-300">
-        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center relative">
             <a href="index.html" class="text-2xl font-bold text-base-900 dark:text-base-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Aaron Feng</a>
             
             <div class="flex items-center gap-8">
-                <ul class="hidden md:flex space-x-8">
+                <ul id="site-nav" class="hidden flex flex-col space-y-3 absolute top-full left-0 right-0 mt-3 mx-6 rounded-2xl bg-engineer-light/95 dark:bg-engineer-dark/95 backdrop-blur border border-base-200 dark:border-base-800 p-4 shadow-lg md:static md:mx-0 md:mt-0 md:rounded-none md:bg-transparent md:backdrop-blur-0 md:border-0 md:p-0 md:shadow-none md:flex md:flex-row md:space-y-0 md:space-x-8 md:items-center">
                     <li><a href="index.html" class="text-sm font-bold uppercase tracking-widest text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors nav-link">About</a></li>
                     <li><a href="experience.html" class="text-sm font-bold uppercase tracking-widest text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors nav-link">Experience</a></li>
                     <li><a href="publication.html" class="text-sm font-bold uppercase tracking-widest text-base-500 hover:text-base-900 dark:text-base-400 dark:hover:text-base-200 transition-colors nav-link">Publication</a></li>
@@ -177,6 +177,12 @@
 <button id="theme-toggle" class="w-10 h-10 p-2 rounded-full bg-base-200 dark:bg-base-800 text-base-800 dark:text-base-200 hover:ring-2 ring-primary-400 transition-all flex items-center justify-center">
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+
+                <button id="mobile-menu-button" aria-controls="site-nav" aria-expanded="false" class="md:hidden w-10 h-10 p-2 rounded-full bg-base-200 dark:bg-base-800 text-base-800 dark:text-base-200 hover:ring-2 ring-primary-400 transition-all flex items-center justify-center">
+                    <span class="sr-only">Toggle navigation menu</span>
+                    <i class="fas fa-bars" data-menu-icon="open"></i>
+                    <i class="fas fa-times hidden" data-menu-icon="close"></i>
                 </button>
             </div>
         </div>
@@ -266,13 +272,13 @@
                 <section id="about" class="mb-16 scroll-mt-24 md:mb-24 lg:mb-36 lg:scroll-mt-32 fade-in">
                     <div class="text-lg text-base-600 dark:text-base-400 leading-relaxed space-y-6">
                         <p>
-                            I'm currently a senior undergraduate at <span class="font-medium text-base-900 dark:text-base-200">UC San Diego</span> pursuing a double major in <span class="font-medium text-primary-600 dark:text-primary-400">Data Science</span> and <span class="font-medium text-primary-600 dark:text-primary-400">Probability & Statistics</span> (GPA 3.83).
+                            I'm an undergraduate at <span class="font-medium text-base-900 dark:text-base-200">UC San Diego</span> studying <span class="font-medium text-primary-600 dark:text-primary-400">Data Science</span> and <span class="font-medium text-primary-600 dark:text-primary-400">Statistics</span>.
                         </p>
                         <p>
-                            My research interests lie at the intersection of <span class="font-medium text-base-900 dark:text-base-200">Machine Learning Systems</span> and <span class="font-medium text-base-900 dark:text-base-200">Scientific AI</span>. I love diving deep into how we can make LLMs more efficient through memory systems and optimizing training pipelines for open-source models.
+                            My research centers on a fundamental question: <span class="font-medium text-base-900 dark:text-base-200">how can AI systems keep learning after deployment?</span> I build self-evolving agents capable of test-time continual learning—systems that accumulate concepts, abstract from experience, and know when to trust themselves.
                         </p>
                         <p>
-                            Outside of the lab, I'm usually analyzing datasets (sometimes just for fun), or exploring creative coding through algorithmic music generation.
+                            My work spans <span class="font-medium text-primary-600 dark:text-primary-400">memory-augmented LLM agents</span>, <span class="font-medium text-primary-600 dark:text-primary-400">abstract reasoning</span>, <span class="font-medium text-primary-600 dark:text-primary-400">AI for scientific discovery</span>, and <span class="font-medium text-primary-600 dark:text-primary-400">uncertainty quantification</span>.
                         </p>
                     </div>
                 </section>
@@ -343,7 +349,7 @@
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="relative group block p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
                             <h3 class="font-bold text-lg text-base-900 dark:text-base-200 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                                LLM Training & Inference (llm_TII)
+                                LLM Foundry: Scalable Training & Inference
                                 <span class="absolute inset-0"></span>
                             </h3>
                             <p class="text-base-600 dark:text-base-400 text-sm mb-4">
@@ -354,7 +360,7 @@
                                 <span class="text-xs font-mono text-primary-600 dark:text-primary-400">Hydra</span>
                                 <span class="text-xs font-mono text-primary-600 dark:text-primary-400">PyTorch</span>
                             </div>
-                            <a href="https://github.com/aaronzhfeng/llm_TII" target="_blank" class="absolute top-6 right-6 text-base-400 group-hover:text-primary-500"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/aaronzhfeng/llm-foundry" target="_blank" class="absolute top-6 right-6 text-base-400 group-hover:text-primary-500"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                         <div class="relative group block p-6 bg-white dark:bg-base-800/50 rounded-2xl border border-base-100 dark:border-base-700 hover:border-primary-500/50 transition-all hover:shadow-lg dark:hover:shadow-primary-900/10">
                             <h3 class="font-bold text-lg text-base-900 dark:text-base-200 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -409,6 +415,51 @@
                 link.classList.remove('text-base-500', 'dark:text-base-500');
             }
         });
+
+        // Mobile navigation toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const siteNav = document.getElementById('site-nav');
+
+        if (mobileMenuBtn && siteNav) {
+            const openIcon = mobileMenuBtn.querySelector('[data-menu-icon="open"]');
+            const closeIcon = mobileMenuBtn.querySelector('[data-menu-icon="close"]');
+
+            const setMenuOpen = (isOpen) => {
+                siteNav.classList.toggle('hidden', !isOpen);
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+                if (openIcon && closeIcon) {
+                    openIcon.classList.toggle('hidden', isOpen);
+                    closeIcon.classList.toggle('hidden', !isOpen);
+                }
+            };
+
+            setMenuOpen(false);
+
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = !siteNav.classList.contains('hidden');
+                setMenuOpen(!isOpen);
+            });
+
+            siteNav.querySelectorAll('a').forEach((a) => {
+                a.addEventListener('click', () => setMenuOpen(false));
+            });
+
+            document.addEventListener('click', (e) => {
+                if (siteNav.classList.contains('hidden')) return;
+                if (siteNav.contains(e.target) || mobileMenuBtn.contains(e.target)) return;
+                setMenuOpen(false);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') setMenuOpen(false);
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) setMenuOpen(false);
+            });
+        }
         
         // Scroll Spy Logic
         const sections = document.querySelectorAll('section');
