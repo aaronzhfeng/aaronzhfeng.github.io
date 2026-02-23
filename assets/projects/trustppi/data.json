@@ -1,0 +1,14 @@
+{
+    "title": "TrustPPI: Trust Signals for Protein-Protein Interaction Prediction",
+    "description": "Model-agnostic trust framework for PPI prediction using domain-specific signals grounded in structural biology. Deformation stability (prediction robustness under coordinate perturbation) achieves 0.70\u20130.80 AUROC for distinguishing correct/incorrect predictions, outperforming generic confidence and GP uncertainty.",
+    "tags": [
+        "Protein Biology",
+        "Trust/Calibration",
+        "Structural Biology"
+    ],
+    "repo": "https://github.com/aaronzhfeng/trust_ppi",
+    "report": null,
+    "image": "architecture.png",
+    "category": "selected",
+    "status": "Under review at KDD 2026"
+}

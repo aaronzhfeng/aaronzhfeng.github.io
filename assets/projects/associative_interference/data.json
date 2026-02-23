@@ -1,0 +1,14 @@
+{
+    "title": "When Memories Collide: Associative Interference in Agent Memory",
+    "description": "Characterizes how semantically similar but contextually distinct memories interfere with each other in lifelong agent memory stores, degrading retrieval precision and task performance. Shows active memory management (pruning, consolidation) is essential for sustaining performance over long horizons.",
+    "tags": [
+        "Agent Memory",
+        "Interference Dynamics",
+        "Lifelong Learning"
+    ],
+    "repo": null,
+    "report": null,
+    "image": "architecture.png",
+    "category": "selected",
+    "status": "Under review at ICLR 2026 NFAM Workshop"
+}

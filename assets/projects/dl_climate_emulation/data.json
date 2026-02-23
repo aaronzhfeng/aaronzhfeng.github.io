@@ -7,5 +7,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/DL_for_Climate_Emulation/",
     "report": "report_dl_climate_emulation.pdf",
-    "image": "icon_climate.png"
+    "image": "icon_climate.png",
+    "category": "other"
 }

@@ -312,60 +312,86 @@
                     }
                 }));
 
-                // 3. Filter valid and Render
+                // 3. Filter valid and group by category
                 const validProjects = projects.filter(p => p !== null);
-                
+
                 if (validProjects.length === 0) {
                     container.innerHTML = '<p class="text-center text-base-500">No projects found.</p>';
                     return;
                 }
 
-                container.innerHTML = validProjects.map(project => {
-                    // Construct paths
-                    const imagePath = `assets/projects/${project.id}/${project.image}`;
-                    const reportPath = project.report ? `assets/projects/${project.id}/${project.report}` : null;
+                const selected = validProjects.filter(p => p.category === 'selected');
+                const other = validProjects.filter(p => p.category !== 'selected');
 
-                    // Tags HTML
-                    const tagsHtml = project.tags.map(tag => 
-                        `<span class="rounded-full bg-primary-50 dark:bg-primary-400/10 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800">${tag}</span>`
-                    ).join('');
+                let html = '';
 
-                    // Actions HTML
-                    let actionsHtml = '';
-                    if (reportPath) {
-                        actionsHtml += `<a href="${reportPath}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium"><i class="fas fa-file-pdf mr-1.5"></i>Report</a>`;
-                    }
-                    if (project.repo) {
-                        actionsHtml += `<a href="${project.repo}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium ${reportPath ? 'ml-4' : ''}"><i class="fab fa-github mr-1.5"></i>Code</a>`;
-                    } else {
-                        actionsHtml += `<span class="text-base-400 text-sm italic ${reportPath ? 'ml-4' : ''}"><i class="fas fa-code mr-1.5"></i>Code (TBD)</span>`;
-                    }
+                if (selected.length > 0) {
+                    html += `<div class="mb-4">
+                        <h3 class="text-xl font-semibold text-base-800 dark:text-base-300 mb-2">Selected Projects</h3>
+                        <p class="text-sm text-base-500 dark:text-base-400">Research papers currently under review.</p>
+                    </div>`;
+                    html += selected.map(project => renderProject(project)).join('');
+                }
 
-                    return `
-                        <div class="group relative flex flex-col md:flex-row gap-8 items-start fade-in">
-                            <img src="${imagePath}" alt="${project.title}" class="w-full md:w-48 h-32 object-cover bg-white rounded-lg border border-base-200 dark:border-base-700 p-2">
-                            <div class="flex-1">
-                                <h3 class="font-bold text-xl text-base-900 dark:text-base-200 mb-2">
-                                    ${project.repo ? `<a href="${project.repo}" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">${project.title}</a>` : project.title}
-                                </h3>
-                                <p class="text-base-600 dark:text-base-400 mb-4 text-sm leading-relaxed">
-                                    ${project.description}
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    ${tagsHtml}
-                                </div>
-                                <div class="flex gap-4">
-                                    ${actionsHtml}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
+                if (other.length > 0) {
+                    html += `<div class="mt-16 mb-4">
+                        <h3 class="text-xl font-semibold text-base-800 dark:text-base-300 mb-2">Other Projects</h3>
+                    </div>`;
+                    html += other.map(project => renderProject(project)).join('');
+                }
+
+                container.innerHTML = html;
 
             } catch (error) {
                 console.error('Error loading projects:', error);
                 container.innerHTML = '<p class="text-center text-red-500">Failed to load projects. Please try again later.</p>';
             }
+        }
+
+        function renderProject(project) {
+            // Construct paths
+            const imagePath = `assets/projects/${project.id}/${project.image}`;
+            const reportPath = project.report ? `assets/projects/${project.id}/${project.report}` : null;
+
+            // Status HTML (for selected projects)
+            const statusHtml = project.status ? `<p class="italic text-base-500 text-xs mb-2">${project.status}</p>` : '';
+
+            // Tags HTML
+            const tagsHtml = project.tags.map(tag =>
+                `<span class="rounded-full bg-primary-50 dark:bg-primary-400/10 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800">${tag}</span>`
+            ).join('');
+
+            // Actions HTML
+            let actionsHtml = '';
+            if (reportPath) {
+                actionsHtml += `<a href="${reportPath}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium"><i class="fas fa-file-pdf mr-1.5"></i>Report</a>`;
+            }
+            if (project.repo) {
+                actionsHtml += `<a href="${project.repo}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium ${reportPath ? 'ml-4' : ''}"><i class="fab fa-github mr-1.5"></i>Code</a>`;
+            } else {
+                actionsHtml += `<span class="text-base-400 text-sm italic ${reportPath ? 'ml-4' : ''}"><i class="fas fa-code mr-1.5"></i>Code (TBD)</span>`;
+            }
+
+            return `
+                <div class="group relative flex flex-col md:flex-row gap-8 items-start fade-in">
+                    <img src="${imagePath}" alt="${project.title}" class="w-full md:w-48 h-32 object-cover bg-white rounded-lg border border-base-200 dark:border-base-700 p-2">
+                    <div class="flex-1">
+                        <h3 class="font-bold text-xl text-base-900 dark:text-base-200 mb-2">
+                            ${project.repo ? `<a href="${project.repo}" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">${project.title}</a>` : project.title}
+                        </h3>
+                        ${statusHtml}
+                        <p class="text-base-600 dark:text-base-400 mb-4 text-sm leading-relaxed">
+                            ${project.description}
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${tagsHtml}
+                        </div>
+                        <div class="flex gap-4">
+                            ${actionsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
         // Initialize

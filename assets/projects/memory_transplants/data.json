@@ -1,0 +1,14 @@
+{
+    "title": "Memory Transplants: Cross-Domain Memory Transfer for LLM Agents",
+    "description": "Factorial study disentangling architecture transfer vs. content transfer when transplanting memory across domains. Shows memory transplantation benefits smaller models most (+15pp for 3B), ExpeL's insight distillation enables meaningful static content transfer, and retrieval budget effects are non-monotonic.",
+    "tags": [
+        "Agent Memory",
+        "Transfer Learning",
+        "Lifelong Learning"
+    ],
+    "repo": null,
+    "report": null,
+    "image": "architecture.png",
+    "category": "selected",
+    "status": "Under review at ICLR 2026 MemAgent Workshop"
+}

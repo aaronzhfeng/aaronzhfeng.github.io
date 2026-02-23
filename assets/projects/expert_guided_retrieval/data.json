@@ -8,5 +8,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/Lightweight_MoE",
     "report": "report_expert_guided_retrieval.pdf",
-    "image": "icon_retrieval.svg"
+    "image": "icon_retrieval.svg",
+    "category": "other"
 }

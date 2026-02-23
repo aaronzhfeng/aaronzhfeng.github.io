@@ -1,0 +1,14 @@
+{
+    "title": "S\u00b3-Sim: Simulating Humans for Personalized Language Modeling",
+    "description": "Unified evaluation framework for AI personalization featuring TacAlign, a benchmark with DeepPersona generation, controlled drift simulation, and diagnostic metrics (Tacit Alignment Score, Stale Context Interference, Adaptation Lag, Ghost Node Retention) that expose failures in RAG-based personalization systems.",
+    "tags": [
+        "Personalization",
+        "LLM Evaluation",
+        "Benchmark"
+    ],
+    "repo": null,
+    "report": null,
+    "image": "overview.png",
+    "category": "selected",
+    "status": "Under review at ICML 2026"
+}

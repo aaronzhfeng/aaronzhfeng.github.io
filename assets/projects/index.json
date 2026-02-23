@@ -1,6 +1,11 @@
 [
-    "arc_memo",
-    "lab_memo",
+    "s3_sim",
+    "ecg",
+    "ep_prior",
+    "trustppi",
+    "memory_transplants",
+    "associative_interference",
+    "memory_operation_recovery",
     "llm_tii",
     "quantify_credibility",
     "chem_moe",

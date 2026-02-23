@@ -209,12 +209,16 @@
                         <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://lianhui.ucsd.edu/getinvolved.html" target="_blank">Q-Lab, UCSD</a>
                         <div class="text-base-500 text-sm mt-1">Advisors: <a href="https://lianhui.ucsd.edu/" target="_blank" class="hover:text-primary-500">Prof. Lianhui Qin</a> and <a href="https://matt-seb-ho.github.io/" target="_blank" class="hover:text-primary-500">Matthew Ho</a></div>
                     </div>
-                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
-                        Investigating memory systems for compositional reasoning on ARC-AGI. Designed feature extraction methodology for Program Synthesis memory format. Built complete concept dataset generation pipeline using LLMs.
-                    </p>
+                    <ul class="text-base-600 dark:text-base-400 leading-relaxed mb-4 text-sm space-y-2 list-disc list-outside ml-4">
+                        <li>Contributed to ArcMemo by leading the design of a program-synthesis-style memory ontology, developing many-to-one puzzle-to-feature mappings and manually curating concept parameterizations to enable concept-level reasoning.</li>
+                        <li>Engineered a reasoning-based retrieval mechanism (System-2 exploration) to resolve embedding failures, achieving a 7.5% relative gain on ARC-AGI-1 (59.33% official score).</li>
+                        <li>Built a complete concept dataset generation pipeline transforming hand-written concepts into validated helper puzzles through multi-stage LLM-based generation, code synthesis, and automated testing.</li>
+                        <li>Extended the framework to AIME math problems by designing a metacognitive self-assessment pipeline, improving accuracy by 9.3% via self-reflective memory usage.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">LLM Agents</span>
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Program Synthesis</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Concept-Level Memory</span>
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Python</span>
                     </div>
                 </li>
@@ -230,17 +234,21 @@
                         <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="http://wanglab.ucsd.edu/" target="_blank">Wang Lab, UCSD</a>
                         <div class="text-base-500 text-sm mt-1">Advisors: <a href="https://chemistry.ucsd.edu/faculty/profiles/wang_wei.html" target="_blank" class="hover:text-primary-500">Prof. Wei Wang</a> and <a href="https://young-su-ko.github.io/" target="_blank" class="hover:text-primary-500">Young Su Ko</a></div>
                     </div>
-                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
-                        Architected a heterogeneous Mixture-of-Experts (MoE) system for chemical reaction prediction. Implemented GNN encoders with shortest-path positional encodings for stereochemistry-sensitive modeling.
-                    </p>
+                    <ul class="text-base-600 dark:text-base-400 leading-relaxed mb-4 text-sm space-y-2 list-disc list-outside ml-4">
+                        <li>Developing TrustPPI: Domain-specific trust signals for protein-protein interaction prediction; showed deformation stability achieves 0.70&ndash;0.80 AUROC vs ~0.50 for generic confidence.</li>
+                        <li>Architected a heterogeneous Mixture-of-Experts system for chemical reaction prediction on USPTO datasets (1M+ reactions), integrating four specialized expert models with learned routing mechanisms.</li>
+                        <li>Implemented graph neural network encoders using directed message-passing architectures with shortest-path positional encodings, enabling permutation-invariant molecular representations for stereochemistry-sensitive reaction modeling.</li>
+                        <li>Engineered training pipelines with teacher-forcing, load-balancing losses, and router warmup; designed evaluation frameworks for top-k accuracy and per-expert ablation.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Protein Biology</span>
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">PyTorch Geometric</span>
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">MoE</span>
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">GNNs</span>
                     </div>
                 </li>
 
-                <!-- Job 3 -->
+                <!-- Job 3: Hao Zhang -->
                 <li class="relative pl-8">
                     <span class="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border border-white bg-primary-500 dark:border-base-900 dark:bg-primary-400"></span>
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
@@ -248,16 +256,39 @@
                         <span class="text-sm font-semibold text-base-500 uppercase tracking-wide">Sep 2025 — Present</span>
                     </div>
                     <div class="mb-4">
-                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://dsc-capstone.org/" target="_blank">HDSI Capstone</a>
-                        <div class="text-base-500 text-sm mt-1">Advisor: <a href="https://cseweb.ucsd.edu/~haozhang/" target="_blank" class="hover:text-primary-500">Prof. Hao Zhang</a></div>
+                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://dsc-capstone.org/" target="_blank">Halicioglu Data Science Institute, UCSD</a>
+                        <div class="text-base-500 text-sm mt-1">Advisor: <a href="https://cseweb.ucsd.edu/~haozhang/" target="_blank" class="hover:text-primary-500">Prof. Hao Zhang</a> (Senior Capstone)</div>
                     </div>
-                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
-                        Building scalable pipelines for training open-source large language models. Benchmarking inference frameworks and exploring alignment strategies.
-                    </p>
+                    <ul class="text-base-600 dark:text-base-400 leading-relaxed mb-4 text-sm space-y-2 list-disc list-outside ml-4">
+                        <li>Built an end-to-end distributed training stack for a 1.8B-parameter language model on 8 NVIDIA B200 GPUs, implementing pipeline parallelism and scaling analysis.</li>
+                        <li>Developing TPU-optimized speculative decoding to reduce latency for test-time reasoning systems.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Distributed Training</span>
-                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Docker</span>
-                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">AWS</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Speculative Decoding</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">B200 GPUs</span>
+                    </div>
+                </li>
+
+                <!-- Job 4: Yian Ma -->
+                <li class="relative pl-8">
+                    <span class="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border border-white bg-primary-500 dark:border-base-900 dark:bg-primary-400"></span>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="text-xl font-bold text-base-900 dark:text-base-200">Student Researcher</h3>
+                        <span class="text-sm font-semibold text-base-500 uppercase tracking-wide">Sep 2025 — Present</span>
+                    </div>
+                    <div class="mb-4">
+                        <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://dsc-capstone.org/" target="_blank">Halicioglu Data Science Institute, UCSD</a>
+                        <div class="text-base-500 text-sm mt-1">Advisor: <a href="https://yianma.net/" target="_blank" class="hover:text-primary-500">Prof. Yian Ma</a> (Senior Capstone)</div>
+                    </div>
+                    <ul class="text-base-600 dark:text-base-400 leading-relaxed mb-4 text-sm space-y-2 list-disc list-outside ml-4">
+                        <li>Developing AR-Bench, an interactive reasoning benchmark where agents decide when to ask clarifying questions versus commit to an answer.</li>
+                        <li>Designing mutual-information-based uncertainty signals to detect epistemic uncertainty for risk-controlled stopping decisions.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Uncertainty Quantification</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Mutual Information</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Benchmarking</span>
                     </div>
                 </li>
 
@@ -272,12 +303,14 @@
                         <a class="font-medium text-primary-600 dark:text-primary-400 hover:underline" href="https://usipc.ucsd.edu/" target="_blank">U.S. Immigration Policy Center</a>
                         <div class="text-base-500 text-sm mt-1">Advisors: <a href="https://polisci.ucsd.edu/people/faculty/faculty-directory/currently-active-faculty/wong-profile.html" target="_blank" class="hover:text-primary-500">Prof. Tom K. Wong</a> and <a href="https://gabrielderoche.com/" target="_blank" class="hover:text-primary-500">Dr. Gabriel De Roche</a></div>
                     </div>
-                    <p class="text-base-600 dark:text-base-400 leading-relaxed mb-4">
-                        Utilized Python and R to analyze historical naturalization data and forecast long-term immigration trends. Developed data pipelines and visual dashboards.
-                    </p>
+                    <ul class="text-base-600 dark:text-base-400 leading-relaxed mb-4 text-sm space-y-2 list-disc list-outside ml-4">
+                        <li>Built forecasting models (ARIMA, exponential smoothing) on 20+ years of naturalization data to project immigration trends for 2024 election policy briefs.</li>
+                        <li>Developed automated data pipelines and interactive Tableau dashboards to communicate findings to non-technical stakeholders.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">R</span>
-                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Data Vis</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">ARIMA</span>
+                        <span class="rounded-full bg-primary-100 dark:bg-primary-400/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">Tableau</span>
                     </div>
                 </li>
             </ol>

@@ -8,5 +8,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/Fake-News-Detection",
     "report": "report_fake_news_detection.pdf",
-    "image": "icon_fake_news.png"
+    "image": "icon_fake_news.png",
+    "category": "other"
 }

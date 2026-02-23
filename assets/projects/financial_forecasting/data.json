@@ -7,5 +7,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/AI_TimeSeries_Forecasting",
     "report": "report_financial_forecasting.pdf",
-    "image": "icon_financial.svg"
+    "image": "icon_financial.svg",
+    "category": "other"
 }

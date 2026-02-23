@@ -8,5 +8,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/Graph2SMILES",
     "report": "report_3d_graph_reaction.pdf",
-    "image": "icon_3d_graph.svg"
+    "image": "icon_3d_graph.svg",
+    "category": "other"
 }

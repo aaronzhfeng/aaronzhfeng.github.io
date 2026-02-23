@@ -1,0 +1,14 @@
+{
+    "title": "EP-Prior: Interpretable ECG Representations via Electrophysiology Constraints",
+    "description": "Self-supervised ECG representation learning that decomposes latent space into physiologically meaningful components (P-wave, QRS, T-wave, HRV) with an EP-constrained Gaussian wave decoder enforcing cardiac priors. Achieves +7.2% AUROC at 10-shot over baselines on PTB-XL with perfect disentanglement.",
+    "tags": [
+        "ECG/Health AI",
+        "Self-Supervised Learning",
+        "Disentanglement"
+    ],
+    "repo": "https://github.com/aaronzhfeng/ep-prior",
+    "report": null,
+    "image": "architecture.png",
+    "category": "selected",
+    "status": "Under review at IJCAI-ECAI 2026"
+}

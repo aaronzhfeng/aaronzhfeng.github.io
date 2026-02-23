@@ -1,0 +1,14 @@
+{
+    "title": "Which Memory Operation Drives Recovery? A Factorial Study",
+    "description": "Factorial study using OMAC (Online Memory Adaptation Controller) with Thompson sampling to isolate which memory operation\u2014retrieve, write, or manage\u2014drives recovery after domain shift. Reveals manage-only adaptation outperforms provide-only, challenging the assumption that retrieval is the primary lever.",
+    "tags": [
+        "Agent Memory",
+        "Online Adaptation",
+        "Domain Shift"
+    ],
+    "repo": null,
+    "report": null,
+    "image": "fig1.png",
+    "category": "selected",
+    "status": "Under review at ICLR 2026 LLA Workshop"
+}

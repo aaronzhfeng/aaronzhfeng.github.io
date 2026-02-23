@@ -8,5 +8,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/ChemTransformer",
     "report": "report_chem_transformer.pdf",
-    "image": "icon_chem_transformer.svg"
+    "image": "icon_chem_transformer.svg",
+    "category": "other"
 }

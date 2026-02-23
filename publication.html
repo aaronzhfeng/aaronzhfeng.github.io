@@ -213,13 +213,38 @@
                 <p class="text-base-600 dark:text-base-400">
                     Matthew Ho, Chen Si, <span class="font-bold text-base-900 dark:text-base-200">Zhaoxiang Feng</span>, Fangxu Yu, Yichi Yang, Zhijian Liu, Zhiting Hu, Lianhui Qin.
                 </p>
-                <p class="italic text-base-500 text-sm">Under review at ICLR 2026.</p>
+                <p class="italic text-base-500 text-sm">Runner-up, ARC Prize 2025 Paper Awards (Top 8 of 90).</p>
                 <p class="text-base-500 text-sm mt-2">
-                    Concept-level memory for test-time continual learning on ARC-AGI abstract reasoning puzzles. Achieved 59.33% official score (+7.5% relative gain over no-memory baseline).
+                    ArcMemo introduces concept-level memory for LLMs, distilling reusable abstractions from reasoning traces to enable continual learning at test time without weight updates. It features two memory formats&mdash;open-ended situation&ndash;suggestion pairs and parameterized program-synthesis routines&mdash;with a System-2 reasoning retrieval mechanism that outperforms embedding-based retrieval by 15%. On ARC-AGI-1, ArcMemo achieves 59.33% official score (+7.5% relative gain), reaching 70.83% with retries. Concepts transfer cross-model (DeepSeek R1 +16%, Kimi K2 +8%) and cross-domain (AIME math +11.6%).
                 </p>
                 <div class="flex gap-4 mt-2">
                     <a href="https://arxiv.org/abs/2509.04439" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fas fa-file-pdf mr-1"></i>arXiv</a>
                     <a href="https://github.com/matt-seb-ho/arc_memo" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fab fa-github mr-1"></i>Code</a>
+                </div>
+            </div>
+
+            <!-- SOKRATES -->
+            <div class="group relative grid gap-4 p-6 rounded-lg hover:bg-base-100 dark:hover:bg-base-800/50 transition-colors mb-6">
+                <div class="flex flex-wrap gap-2 mb-2">
+                    <span class="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-400/10 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:text-primary-300">
+                        First Author
+                    </span>
+                </div>
+                <h3 class="font-bold text-lg text-base-900 dark:text-base-200">
+                    <a href="https://github.com/aaronzhfeng/sokrates-oak/blob/main/paper/sokrates.pdf" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400">
+                        SOKRATES: Distilling Symbolic Knowledge into Option-Level Reasoning via Solver-Guided Preference Optimization
+                    </a>
+                </h3>
+                <p class="text-base-600 dark:text-base-400">
+                    <span class="font-bold text-base-900 dark:text-base-200">Zhaoxiang Feng</span>, David Scott Lewis.
+                </p>
+                <p class="italic text-base-500 text-sm">Accepted at AAAI 2026 Bridge Program on Logic & AI: Logical and Symbolic Reasoning in Language Models (LMReasoning).</p>
+                <p class="text-base-500 text-sm mt-2">
+                    SOKRATES decomposes each reasoning step into a Thought (natural language justification) and an Action (a discrete inference-rule token from 18 first-order logic operations). A symbolic FOL solver verifies each step, and solver-valid vs. invalid traces form DPO preference pairs. An option success head&mdash;a lightweight MLP predicting step-level validity&mdash;provides interpretable "knowledge" about what the model has learned about logical reasoning.
+                </p>
+                <div class="flex gap-4 mt-2">
+                    <a href="https://github.com/aaronzhfeng/sokrates-oak/blob/main/paper/sokrates.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fas fa-file-pdf mr-1"></i>PDF</a>
+                    <a href="https://github.com/aaronzhfeng/sokrates-oak" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fab fa-github mr-1"></i>Code</a>
                 </div>
             </div>
 
@@ -240,7 +265,7 @@
                 </p>
                 <p class="italic text-base-500 text-sm">Accepted at IEEE IROS 2025 Workshop on Embodied AI and Robotics for Future Scientific Discovery (AIR4S).</p>
                 <p class="text-base-500 text-sm mt-2">
-                    Extends concept-level memory to autonomous scientific agents with a Planner–Selector–Verifier architecture. Achieved 4.01% parameter identification error from 50 samples and 87% task retention.
+                    LabMemo extends concept-level memory from abstract reasoning to autonomous scientific discovery. A Planner/Selector/Verifier architecture composes multi-step experimental protocols from reusable scientific procedures, with the Verifier gating execution against safety rules, type constraints, and physical limits. Elastic Weight Consolidation prevents catastrophic forgetting across experimental domains. Achieves 4.01% parameter identification error from 50 samples and 87% task retention.
                 </p>
                 <div class="flex gap-4 mt-2">
                     <a href="https://github.com/aaronzhfeng/lab_memo/blob/main/paper/LabMemo_Paper.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline text-sm"><i class="fas fa-file-pdf mr-1"></i>PDF</a>

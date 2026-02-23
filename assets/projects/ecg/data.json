@@ -1,0 +1,14 @@
+{
+    "title": "Explanation-Consistency Graphs: Training Data Debugging",
+    "description": "Graph-based framework that uses LLM-generated explanations to detect mislabeled and noisy training data. Builds reliability-weighted kNN graphs over explanation embeddings and computes neighborhood surprise, NLI contradiction, and artifact scores to identify annotation errors that traditional confidence methods miss.",
+    "tags": [
+        "Data Quality",
+        "LLM Explanations",
+        "Graph Methods"
+    ],
+    "repo": null,
+    "report": null,
+    "image": "image.png",
+    "category": "selected",
+    "status": "Under review at ACL Rolling Review 2026"
+}

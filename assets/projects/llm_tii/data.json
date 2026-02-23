@@ -8,5 +8,6 @@
     ],
     "repo": "https://github.com/aaronzhfeng/llm-foundry",
     "report": null,
-    "image": "icon_llm_tii.svg"
+    "image": "icon_llm_tii.svg",
+    "category": "other"
 }
