@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aaron Feng — AI Researcher</title>
+<title>Aaron Feng — Misc</title>
 <meta name="description" content="Aaron Feng — AI researcher working on self-evolving agents, concept-level memory, calibrated uncertainty, and efficient inference. Incoming MS CS at UT Austin; BS at UC San Diego.">
 <meta name="color-scheme" content="dark light">
 
@@ -125,67 +125,6 @@
   html[data-type="terminal"] .num { font-variant-numeric: tabular-nums lining-nums; }
   html[data-type="terminal"] .tag { border-radius: var(--radius-sm); }
   html[data-type="terminal"] .tag::before { content: "#"; color: var(--coral); margin-right: 0.1rem; }
-
-
-
-  .about p { margin: 0; }
-  .about p + p { margin-top: var(--space-sm); }
-  .pub .summary { margin: var(--space-xs) 0 0; color: var(--ink-soft); text-wrap: pretty; }
-
-  /* ---- Publication title row — title left, the WHOLE method figure
-         right, shown uncropped at its own aspect ratio (never forced into
-         a square) and capped to a modest column width — the rest of the
-         box is just whitespace, the way an academic pub list usually does
-         it. Centered against the title block so a 2- or 3-line title
-         still balances against the figure. -------------------------------- */
-  .pub-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-bottom: var(--space-xs);
-  }
-  /* the heading block = award badge (when present) + title, treated as ONE
-     unit so the figure centers against the pair, not just the title ------ */
-  .pub-heading { flex: 1 1 auto; min-width: 0; }
-  .pub-heading .award { margin-bottom: var(--space-xs); }
-  .pub-title-row h3 { margin-bottom: 0; }
-  .pub-thumb {
-    flex: 0 1 auto;
-    width: auto;
-    height: auto;
-    max-width: clamp(150px, 22vw, 230px);
-    max-height: 7.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--rule-strong);
-    background: #f3efe6;
-    box-shadow: var(--shadow);
-  }
-  @media (max-width: 30rem) {
-    .pub-title-row { flex-direction: column-reverse; gap: 0.75rem; }
-    .pub-thumb { max-width: 100%; width: 100%; max-height: none; }
-  }
-
-  /* ---- Vertical stack of compact cards (Research Experience) ----------- */
-  .stack { display: flex; flex-direction: column; gap: 1.1rem; }
-  .stack .card p { margin-top: var(--space-2xs); }
-  .hl { list-style: none; margin: var(--space-xs) 0 0; padding: 0; }
-  .hl li {
-    position: relative; padding-left: 1.05rem; margin-top: var(--space-xs);
-    color: var(--ink-soft); text-wrap: pretty;
-  }
-  .hl li:first-child { margin-top: 0; }
-  .hl li strong { color: var(--ink); font-weight: 600; }
-  .hl li::before {
-    content: ""; position: absolute; left: 0.1rem; top: 0.62em;
-    width: 4px; height: 4px; border-radius: 50%; background: var(--coral);
-  }
-  html[data-type="terminal"] .hl li::before {
-    content: "-"; background: none; width: auto; height: auto;
-    top: 0; left: 0; color: var(--coral); font-weight: 600;
-  }
-  .about .hl { margin-top: var(--space-sm); }
-  .about .hl li { margin-top: var(--space-sm); }
 
   /* ---- Terminal grammar: the "$" prompt line + name caret + "//" heads - */
   .cmd {
@@ -628,6 +567,7 @@
 
   .about {
     color: var(--ink-soft);
+    max-width: var(--measure);
     text-wrap: pretty;
   }
 
@@ -637,6 +577,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
+  /* ---- Vertical stack of cards (single-column, with a real gap) ------- */
+  .stack { display: flex; flex-direction: column; gap: 1.1rem; }
   .card {
     background: var(--surface);
     border: 1px solid var(--rule);
@@ -729,21 +671,6 @@
     font-weight: 600;
     color: var(--ink);
   }
-  .pub .venue {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: var(--space-md);
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    background: transparent;
-    border: 1px solid var(--rule-strong);
-    font-size: var(--fs-micro);
-    text-transform: uppercase;
-    letter-spacing: var(--track-caps);
-    font-weight: 600;
-    color: var(--ink-soft);
-  }
-  .pub-heading .venue { margin-bottom: var(--space-xs); }
   .pub h3 {
     font-family: var(--serif);
     font-optical-sizing: auto;
@@ -759,6 +686,7 @@
     color: var(--ink-soft);
     font-size: var(--fs-meta);
     line-height: 1.6;
+    max-width: 40rem;
   }
   .pub .authors .me { color: var(--ink); font-weight: 700; }
   .pub .pub-links {
@@ -938,8 +866,8 @@
     <div class="topbar-main">
       <nav id="site-nav" data-open="false" aria-label="Site">
       <ul>
-        <li><a href="index.html" aria-current="page">About</a></li>
-        <li><a href="misc.html">Misc</a></li>
+        <li><a href="index.html">About</a></li>
+        <li><a href="misc.html" aria-current="page">Misc</a></li>
       </ul>
     </nav>
 
@@ -988,9 +916,9 @@
 
     <nav class="rail-nav" aria-label="Section navigation">
       <ul>
-        <li><a href="#about"><span class="ind" aria-hidden="true"></span><span class="txt">About</span></a></li>
-        <li><a href="#publications"><span class="ind" aria-hidden="true"></span><span class="txt">Publications</span></a></li>
-        <li><a href="#experience"><span class="ind" aria-hidden="true"></span><span class="txt">Research Experience</span></a></li>
+        <li><a href="#coursework"><span class="ind" aria-hidden="true"></span><span class="txt">Coursework</span></a></li>
+        <li><a href="#hobbies"><span class="ind" aria-hidden="true"></span><span class="txt">Hobbies</span></a></li>
+        <li><a href="#travel"><span class="ind" aria-hidden="true"></span><span class="txt">Travel</span></a></li>
       </ul>
     </nav>
 
@@ -1016,144 +944,101 @@
   <!-- ========================= RIGHT CONTENT ========================= -->
   <main class="content" id="main">
 
-    <!-- ---------------------------- ABOUT ---------------------------- -->
-    <section id="about" class="band" aria-labelledby="about-h">
+    <!-- -------------------------- INTERESTS -------------------------- -->
+
+    <!-- -------------------------- COURSEWORK ------------------------- -->
+    <section id="coursework" class="band" aria-labelledby="coursework-h">
       <div class="section-head">
         <span class="idx" aria-hidden="true">01</span>
-        <h2 id="about-h"><span class="ed-only">About</span><span class="term-only"><span class="cm">//</span>about</span></h2>
+        <h2 id="coursework-h"><span class="ed-only">Graduate-Level Coursework</span><span class="term-only"><span class="cm">//</span>graduate_level_coursework</span></h2>
       </div>
-      <div class="about prose">
-        <p>
-          I&rsquo;m a first-year Computer Science master&rsquo;s student at UT&nbsp;Austin.
-          I did my BS in Data Science and Probability&nbsp;&amp;&nbsp;Statistics at
-          UC&nbsp;San&nbsp;Diego.
-        </p>
-        <p>Two things I work on:</p>
-        <ul class="hl">
-          <li><strong>Memory for LLM agents:</strong> giving an agent a way to keep what it
-            worked out on one problem and put it to use on the next.</li>
-          <li><strong>Efficient inference:</strong> mostly speculative decoding, getting a
-            cheap draft model to propose tokens the real model will actually accept.</li>
-        </ul>
+
+      <p class="about prose">Completed as an undergraduate at UC&nbsp;San&nbsp;Diego.</p>
+
+      <div class="grid-2" style="margin-top: var(--space-md);">
+        <article class="card">
+          <p class="over"><span class="num">DSC&nbsp;291</span></p>
+          <h3>Privacy-Sensitive Data Systems</h3>
+        </article>
+        <article class="card">
+          <p class="over"><span class="num">MATH&nbsp;287A&ndash;C</span></p>
+          <h3>Time Series &amp; Advanced Time Series Analysis</h3>
+        </article>
+        <article class="card">
+          <p class="over"><span class="num">DSC&nbsp;240</span></p>
+          <h3>Machine Learning</h3>
+        </article>
+        <article class="card">
+          <p class="over"><span class="num">MATH&nbsp;282A&ndash;B</span></p>
+          <h3>Applied Statistics I&ndash;II</h3>
+        </article>
       </div>
     </section>
 
-    <section id="publications" class="band" aria-labelledby="publications-h">
+    <section id="hobbies" class="band" aria-labelledby="hobbies-h">
       <div class="section-head">
         <span class="idx" aria-hidden="true">02</span>
-        <h2 id="publications-h"><span class="ed-only">Selected Publications</span><span class="term-only"><span class="cm">//</span>selected_publications</span></h2>
+        <h2 id="hobbies-h"><span class="ed-only">Hobbies</span><span class="term-only"><span class="cm">//</span>hobbies</span></h2>
       </div>
 
       <div class="stack">
-      <article class="pub">
-        <div class="pub-title-row">
-          <div class="pub-heading">
-            <p class="venue">Under review &mdash; NeurIPS 2026</p>
-            <h3>JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting</h3>
-          </div>
-          <img class="pub-thumb" src="pub-jetspec.png" alt="JetSpec's method figure: fused target-model features feed a causal-parallel draft head that drafts a candidate tree in one forward pass, then the frozen target model verifies it." loading="lazy">
-        </div>
-        <p class="authors">
-          Lanxiang Hu, <span class="me">Zhaoxiang Feng</span>, Yulun Wu, Haoran Yuan,
-          Yujie Zhao, Yu&#8209;Yang Qian, Bojun Wang, Peng Zhao, Daxin Jiang, Yibo Zhu,
-          Tajana Rosing, Hao Zhang
+      <article class="card prose">
+        <h3>🌐 Languages</h3>
+        <p>
+          Two years of Japanese and still going. It started with J&#8209;pop and
+          anime, and these days it is mostly manga.
         </p>
-        <p class="summary">
-          A causal parallel draft head over fused hidden states, combining one-forward
-          drafting with branch-wise causal conditioning&nbsp;&mdash; up to
-          <span class="num">9.64&times;</span> speedup on math and
-          <span class="num">4.58&times;</span> on chat with Qwen3.
-        </p>
-        <ul class="pub-links" aria-label="Publication links">
-          <li><a href="https://arxiv.org/abs/2606.18394"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>arXiv</a></li>
-          <li><a href="https://github.com/hao-ai-lab/JetSpec"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Code</a></li>
-        </ul>
       </article>
 
-      <article class="pub">
-        <div class="pub-title-row">
-          <div class="pub-heading">
-            <p class="award">
-              <svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>
-              Runner&#8209;up&nbsp;&mdash; ARC Prize 2025 Paper Awards
-            </p>
-            <h3>ArcMemo: Abstract Reasoning Composition with Lifelong LLM Memory</h3>
-          </div>
-          <img class="pub-thumb" src="pub-arcmemo.png" alt="ArcMemo's method diagram: how memory is formatted, written from a solved puzzle's trace, and read back for a new problem, in both the open-ended and program-synthesis formats." loading="lazy">
-        </div>
-        <p class="authors">
-          Matthew Ho, Chen Si, <span class="me">Zhaoxiang Feng</span>, Fangxu Yu,
-          Yichi Yang, Zhijian Liu, Zhiting Hu, Lianhui Qin
+      <article class="card prose">
+        <h3>🎵 Music</h3>
+        <p>
+          I play a few instruments and produce electronic music in Ableton. Most of it
+          comes down to how much structure to impose and how much to let emerge&nbsp;&mdash;
+          the same question I keep asking about inductive bias in models.
         </p>
-        <p class="summary">
-          A concept-level memory that lets an LLM agent distill reasoning traces into
-          reusable abstractions and keep learning at test time without weight updates.
+      </article>
+
+      <article class="card prose">
+        <h3>📚 History</h3>
+        <p>
+          I read history for the mechanism rather than the anecdotes: how productivity
+          and a society&rsquo;s way of understanding the world end up shaping its
+          behaviour&nbsp;&mdash; a complex system of feedback and emergence more than a
+          chain of clean causes. It is the same question I chase in research, at a
+          different scale.
         </p>
-        <ul class="pub-links" aria-label="Publication links">
-          <li><a href="https://arxiv.org/abs/2509.04439"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>arXiv</a></li>
-          <li><a href="https://github.com/matt-seb-ho/arc_memo"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Code</a></li>
-        </ul>
       </article>
       </div>
-
     </section>
 
-    <section id="experience" class="band" aria-labelledby="experience-h">
+    <section id="travel" class="band" aria-labelledby="travel-h">
       <div class="section-head">
         <span class="idx" aria-hidden="true">03</span>
-        <h2 id="experience-h"><span class="ed-only">Research Experience</span><span class="term-only"><span class="cm">//</span>research_experience</span></h2>
+        <h2 id="travel-h"><span class="ed-only">Travel</span><span class="term-only"><span class="cm">//</span>travel</span></h2>
       </div>
 
-      <div class="stack">
-        <article class="card prose">
-          <p class="over">
-            <span class="lab">Hao AI Lab, UC&nbsp;San&nbsp;Diego</span>
-            <span class="aff">Advised by Hao Zhang and Lanxiang Hu &middot; Sep 2025&ndash;Present</span>
-          </p>
-          <ul class="hl">
-            <li>Led <strong>JetSpec++</strong>, a causal correction for parallel drafting that
-              conditions each drafted token on its full branch history rather than on the preceding
-              token alone. At matched parameter count it outperformed DeepSeek&rsquo;s DSpark, with
-              the margin widening at draft depths beyond those used in training.</li>
-            <li>Contributed to <strong>JetSpec</strong>, a draft head that generates a complete
-              speculative tree in one forward pass while preserving the target model&rsquo;s
-              autoregressive factorization along every branch; built its standalone inference engine
-              (paged KV cache, Triton tree&#8209;attention kernel, CUDA&#8209;graph verification) and
-              its evaluation suite. Reaches up to <span class="num">9.64&times;</span>
-              end&#8209;to&#8209;end speedup over autoregressive decoding on Qwen3&#8209;8B
-              (MATH&#8209;500).</li>
-            <li>Ported <strong>DFlash</strong> speculative decoding to TPU in JAX as the primary
-              contributor, showing that verification cost stays flat in draft block size through
-              <span class="num">K=1024</span>. Averaged <span class="num">3.13&times;</span> speedup
-              on TPU&nbsp;v5p; the draft model and proposer are merged into vLLM&rsquo;s TPU backend,
-              with pipeline integration in review, and the work is featured on the Google Developers
-              Blog.</li>
-            <li>Built the training stack for a <span class="num">1.8B</span>&#8209;parameter language
-              model on <span class="num">eight</span> NVIDIA B200 GPUs, implementing the full
-              pre&#8209;training and SFT and DPO post&#8209;training system with DDP and
-              ZeRO&#8209;1.</li>
-          </ul>
+      <p class="about prose">A few places I&rsquo;ve been.</p>
+
+      <div class="grid-2">
+        <article class="card">
+          <img src="travel/Greensboro/Greensboro.jpeg" alt="Greensboro" loading="lazy" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:0.75rem">
+          <h3>Greensboro</h3>
         </article>
-        <article class="card prose">
-          <p class="over">
-            <span class="lab">Q&#8209;Lab, UC&nbsp;San&nbsp;Diego</span>
-            <span class="aff">Advised by Lianhui Qin and Matthew Ho &middot; Jan 2025&ndash;Jun 2026</span>
-          </p>
-          <ul class="hl">
-            <li>Contributed to the design of <strong>ArcMemo</strong>&rsquo;s program&#8209;synthesis
-              memory ontology, a typed, parameterized representation in which reusable reasoning
-              concepts are stored and composed.</li>
-            <li>Worked on the reasoning&#8209;guided concept selection that replaced
-              embedding&#8209;based retrieval, after embedding search proved ineffective on the
-              ARC&#8209;AGI&#8209;1 abstract&#8209;reasoning benchmark.</li>
-            <li>Built the pipeline that produces concept&#8209;labeled helper puzzles: each
-              hand&#8209;written concept is expanded by an LLM into puzzle&#8209;generating code,
-              which is executed and tested so that every generated puzzle is verified to exercise
-              its concept.</li>
-            <li>Designed the framework&rsquo;s adaptation to AIME competition mathematics and ran the
-              generalization experiments and memory&#8209;format comparisons that informed the final
-              design.</li>
-          </ul>
+
+        <article class="card">
+          <img src="travel/Qinghai/Qinghai.jpeg" alt="Qinghai" loading="lazy" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:0.75rem">
+          <h3>Qinghai</h3>
+        </article>
+
+        <article class="card">
+          <img src="travel/Iceland/Iceland.jpeg" alt="Iceland" loading="lazy" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:0.75rem">
+          <h3>Iceland</h3>
+        </article>
+
+        <article class="card">
+          <img src="travel/Hawaii/Hawaii.jpeg" alt="Hawaii" loading="lazy" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:0.75rem">
+          <h3>Hawaii</h3>
         </article>
       </div>
     </section>
