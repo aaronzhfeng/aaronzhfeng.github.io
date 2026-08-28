@@ -238,7 +238,7 @@
     transition: color 0.15s ease, background 0.15s ease;
   }
   .seg-btn:hover { color: var(--ink); }
-  html[data-type="terminal"] .seg-btn[data-val="editorial"],
+  html[data-type="editorial"] .seg-btn[data-val="editorial"],
   html[data-type="terminal"]  .seg-btn[data-val="terminal"],
   html[data-color="warm"]     .seg-btn[data-val="warm"],
   html[data-color="bluish"]   .seg-btn[data-val="bluish"] {
@@ -952,8 +952,8 @@
           <div class="switcher" role="group" aria-label="Page style">
             <span class="switch-label">Style</span>
             <div class="seg" role="group" aria-label="Type">
-              <button type="button" class="seg-btn" data-axis="type" data-val="editorial" aria-pressed="true">Editorial</button>
-              <button type="button" class="seg-btn" data-axis="type" data-val="terminal" aria-pressed="false">Terminal</button>
+              <button type="button" class="seg-btn" data-axis="type" data-val="terminal" aria-pressed="true">Terminal</button>
+              <button type="button" class="seg-btn" data-axis="type" data-val="editorial" aria-pressed="false">Editorial</button>
             </div>
             <div class="seg" role="group" aria-label="Colour">
               <button type="button" class="seg-btn" data-axis="color" data-val="warm" aria-pressed="true">Warm</button>
